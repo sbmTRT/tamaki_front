@@ -1,26 +1,36 @@
-<script setup>
+<template>
+  <div id="app">
+    <Header />
+    <router-view />
+    <Footer />
+  </div>
+</template>
+
+<script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Sidebar from './components/Sidebar.vue';
 
 export default {
   components: {
     Header,
     Footer,
-    Sidebar,
   },
 };
 </script>
 
-<template>
-    <div class="wrapper">
-      <Header />
-        <Sidebar />
-          <router-view />
-      <Footer />
-    </div>
-</template>
-
-<style scoped>
-/* */
+<style>
+/* Add your global styles here */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#app {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 </style>
