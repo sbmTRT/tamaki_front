@@ -3,13 +3,13 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from '../views/Home.vue';
-import MyForm from './components/MyForm.vue';
+import MyForm from '../components/MyForm.vue';
 
 // Route settings
 const routes = [
     {
         path: '/',
-        redirect: '/home',
+        redirect: '/myform',
     },
     {
         path: '/home',
