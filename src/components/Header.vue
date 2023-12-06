@@ -1,5 +1,19 @@
 <template>
   <header>
+    <div>
+      <h1>create-liff-app</h1>
+      <p v-if="message">{{ message }}</p>
+      <p v-if="userid">{{ userid }}</p>
+      <p v-if="diaplayname">{{ diaplayname }}</p>
+      <p v-if="pictureurl">{{ pictureurl }}</p>
+      <p v-if="statusmessage">{{ statusmessage }}</p>
+      <p v-if="error">
+        <code>{{ error }}</code>
+      </p>
+      <a href="https://developers.line.biz/ja/docs/liff/" target="_blank" rel="noreferrer">
+        LIFF Documentation
+      </a>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         Hello! {{ displayname }}  {{ message }}  {{ error }}
@@ -22,23 +36,9 @@
       </div>
     </nav>
   </header>
-  <div>
-    <h1>create-liff-app</h1>
-    <p v-if="message">{{ message }}</p>
-    <p v-if="userid">{{ userid }}</p>
-    <p v-if="diaplayname">{{ diaplayname }}</p>
-    <p v-if="pictureurl">{{ pictureurl }}</p>
-    <p v-if="statusmessage">{{ statusmessage }}</p>
-    <p v-if="error">
-      <code>{{ error }}</code>
-    </p>
-    <!-- <a href="https://developers.line.biz/ja/docs/liff/" target="_blank" rel="noreferrer">
-      LIFF Documentation
-    </a> -->
-  </div>
 </template>
 
-
+<script>
 import liff from "@line/liff";
 
 export default {
