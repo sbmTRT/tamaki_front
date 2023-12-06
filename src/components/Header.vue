@@ -1,15 +1,35 @@
 <template>
   <header>
-    <h1>My LIFF App Header</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Your App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <!-- Add any navigation links or components here -->
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 </template>
 
 <script>
 export default {
-  // Component logic goes here
-}
+  // Add any additional configuration or methods here
+};
 </script>
 
 <style scoped>
-/* Component-specific styles go here */
+/* Add any custom styles for the header */
 </style>

@@ -1,15 +1,17 @@
 <template>
-  <footer>
-    <p>© 2023 My LIFF App</p>
+  <footer class="mt-5">
+    <div class="container text-center">
+      <p>&copy; 2023 Your App. All rights reserved.</p>
+    </div>
   </footer>
 </template>
 
 <script>
 export default {
-  // Component logic goes here
-}
+  // Add any additional configuration or methods here
+};
 </script>
 
 <style scoped>
-/* Component-specific styles go here */
+/* Add any custom styles for the footer */
 </style>
