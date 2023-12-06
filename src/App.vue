@@ -1,5 +1,6 @@
 <template>
     <Header />
+    <div class="wrapper">
     <!-- The main app component includes the router view -->
     <router-view />
     </div>
