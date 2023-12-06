@@ -1,8 +1,7 @@
 <template>
-    <!-- Main Footer -->
-    <footer class="main-footer" id="footer">
-      <strong>Copyright &copy; 2022 </strong> Nippon Expressway Research Institute Company Limited. All rights reserved.
-    </footer>
+  <footer>
+    <p>© 2023 My LIFF App</p>
+  </footer>
 </template>
 
 <script>
