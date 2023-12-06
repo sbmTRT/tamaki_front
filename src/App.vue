@@ -23,13 +23,7 @@ export default {
   components: {
     Header,
     Footer,
-  },
-  data() {
-    return {
-      currentView: 'home', // Set the default view
-    };
-  },
-  // App-level logic goes here
+  }
 }
 </script>
 
