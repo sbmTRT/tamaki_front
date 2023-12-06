@@ -26,11 +26,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      displayname: "",
-    };
-  },
   mounted() {
     liff
       .init({
