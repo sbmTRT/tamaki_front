@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <h2>Home Page</h2>
-    <!-- Home page content goes here -->
-  </div>
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <h1>Dashboard</h1>
+        </div>
+      </section>
 </template>
 
 <script>
