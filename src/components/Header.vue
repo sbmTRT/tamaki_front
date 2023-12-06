@@ -41,7 +41,7 @@ export default {
         if (liff.isLoggedIn()) {
           // Get user profile
           liff.getProfile().then((profile) => {
-            this.displayname = 'User Name:'+ displayName;
+            this.displayname = displayName;
           }).catch((error) => {
             console.error('Error getting user profile', error);
           });
