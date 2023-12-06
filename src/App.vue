@@ -1,26 +1,16 @@
 <template>
-  <div id="app" class="wrapper">
-    <Header />
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <!-- <router-view /> -->
-        <!-- Main content -->
-      </div>
-    <Footer />
+  <div id="app">
+    <SampleComponent/>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import SampleComponent from './components/SampleComponent.vue';
 
 export default {
+  name: 'App',
   components: {
-    Header,
-    Footer,
+    SampleComponent
   }
-}
+};
 </script>
-
-<style>
-</style>
