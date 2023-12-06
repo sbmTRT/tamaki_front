@@ -1,16 +1,11 @@
 <template>
   <div id="app" class="wrapper">
     <Header />
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <router-view />
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <!-- Your dashboard content goes here -->
-        </div>
-      </section>
-    </div>
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <!-- <router-view /> -->
+        <!-- Main content -->
+      </div>
     <Footer />
   </div>
 </template>
