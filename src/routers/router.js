@@ -3,23 +3,29 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from '../views/Home.vue';
-import MyForm from '../components/MyForm.vue';
+import About from '../views/About.vue';
+import Selection from '../views/Selection.vue';
 
 // Route settings
 const routes = [
     {
         path: '/',
-        redirect: '/myform',
+        redirect: '/selection',
+    },
+    {
+        path: '/selection',
+        name: 'Selection',
+        component: Selection,
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About,
     },
     {
         path: '/home',
         name: 'Home',
         component: Home,
-    },
-    {
-        path: '/myform',
-        name: 'MyForm',
-        component: MyForm,
     }
 ];
 

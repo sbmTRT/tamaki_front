@@ -1,29 +1,26 @@
-<template>
-    <Header />
-<h1>Home</h1>
-    <div class="wrapper">
-    <!-- The main app component includes the router view -->
-    <router-view />
-    </div>
-    <Footer />
-</template>
-
-
-<script>
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-
+<script setup>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import Sidebar from './components/Sidebar.vue';
 
 export default {
   components: {
     Header,
     Footer,
+    Sidebar,
   },
 };
 </script>
 
-<style>
-/* Add your custom styles here */
+<template>
+    <div class="wrapper">
+      <Header />
+        <Sidebar />
+          <router-view />
+      <Footer />
+    </div>
+</template>
+
+<style scoped>
+/* */
 </style>
