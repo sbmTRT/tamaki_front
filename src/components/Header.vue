@@ -1,19 +1,5 @@
 <template>
   <header>
-    <div>
-      <h1>create-liff-app</h1>
-      <p v-if="message">{{ message }}</p>
-      <p v-if="userid">{{ userid }}</p>
-      <p v-if="displayname">{{ displayname }}</p>
-      <p v-if="pictureurl">{{ pictureurl }}</p>
-      <p v-if="statusmessage">{{ statusmessage }}</p>
-      <p v-if="error">
-        <code>{{ error }}</code>
-      </p>
-      <a href="https://developers.line.biz/ja/docs/liff/" target="_blank" rel="noreferrer">
-        LIFF Documentation
-      </a>
-    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         Hello! {{ displayname }}
@@ -63,24 +49,13 @@ export default {
         if (liff.isLoggedIn()) {
           // Get user profile
           liff.getProfile().then((profile) => {
-            const userId = profile.userId;
             const displayName = profile.displayName;
-            const pictureUrl = profile.pictureUrl;
-            const statusMessage = profile.statusMessage;
-            this.userid = userId;
             this.displayname = displayName;
-            this.pictureurl = pictureUrl;
-            this.statusmessage = 'Status Message:'+ statusMessage;
-            // this.client = "isInClient", liff.isInClient();
           }).catch((error) => {
             console.error('Error getting user profile', error);
           });
-        } else {
-          this.userid = 'User ID: empty';
         }
       }).catch((e) => {
-        this.message = "LIFF init failed.";
-        this.error = `${e}`;
       });
   }
 };
