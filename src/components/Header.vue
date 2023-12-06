@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        Hello! {{ diaplayname }}
+        Hello! {{ displayname }}
         <button
           class="navbar-toggler"
           type="button"
@@ -41,7 +41,7 @@ export default {
         if (liff.isLoggedIn()) {
           // Get user profile
           liff.getProfile().then((profile) => {
-            this.diaplayname = 'User Name:'+ displayName;
+            this.displayname = 'User Name:'+ displayName;
           }).catch((error) => {
             console.error('Error getting user profile', error);
           });
