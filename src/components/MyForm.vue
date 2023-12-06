@@ -1,10 +1,6 @@
 <!-- MyForm.vue -->
 <template>
-  <div class="container mt-5">
-    <form>
-      <!-- Your form content here -->
-    </form>
-  </div>
+<h1>Home</h1>
 </template>
 
 <script>
