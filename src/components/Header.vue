@@ -16,7 +16,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        Hello! <p v-if="displayname">{{ displayname }}</p>
+        Hello! {{ displayname }}
         <button
           class="navbar-toggler"
           type="button"
@@ -67,9 +67,9 @@ export default {
             const displayName = profile.displayName;
             const pictureUrl = profile.pictureUrl;
             const statusMessage = profile.statusMessage;
-            this.userid = 'User ID:'+ userId;
-            this.displayname = 'User Name:'+ displayName;
-            this.pictureurl = 'Picture url:'+ pictureUrl;
+            this.userid = userId;
+            this.displayname = displayName;
+            this.pictureurl = pictureUrl;
             this.statusmessage = 'Status Message:'+ statusMessage;
             // this.client = "isInClient", liff.isInClient();
           }).catch((error) => {
