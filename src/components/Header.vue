@@ -4,7 +4,7 @@
       <h1>create-liff-app</h1>
       <p v-if="message">{{ message }}</p>
       <p v-if="userid">{{ userid }}</p>
-      <p v-if="diaplayname">{{ diaplayname }}</p>
+      <p v-if="displayname">{{ displayname }}</p>
       <p v-if="pictureurl">{{ pictureurl }}</p>
       <p v-if="statusmessage">{{ statusmessage }}</p>
       <p v-if="error">
@@ -16,7 +16,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        Hello! {{ displayname }}  {{ message }}  {{ error }}
+        Hello! <p v-if="displayname">{{ displayname }}</p>
         <button
           class="navbar-toggler"
           type="button"
@@ -68,7 +68,7 @@ export default {
             const pictureUrl = profile.pictureUrl;
             const statusMessage = profile.statusMessage;
             this.userid = 'User ID:'+ userId;
-            this.diaplayname = 'User Name:'+ displayName;
+            this.displayname = 'User Name:'+ displayName;
             this.pictureurl = 'Picture url:'+ pictureUrl;
             this.statusmessage = 'Status Message:'+ statusMessage;
             // this.client = "isInClient", liff.isInClient();
