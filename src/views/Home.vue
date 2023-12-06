@@ -6,6 +6,7 @@
           <h1>Dashboard</h1>
         </div>
       </section>
+    </div>
 </template>
 
 <script>
