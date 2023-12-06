@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">Your App</a>
+        Student Application Form
         <button
           class="navbar-toggler"
           type="button"
