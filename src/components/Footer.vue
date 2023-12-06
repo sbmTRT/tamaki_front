@@ -1,7 +1,7 @@
 <template>
   <footer class="mt-5">
     <div class="container text-center">
-      <p>&copy; 2023 Your App. All rights reserved.</p>
+      <p>&copy; 2023 tamaki. All rights reserved.</p>
     </div>
   </footer>
 </template>
