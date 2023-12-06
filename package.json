@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@line/liff": "2.22.4",
-    "vue": "3.3.9"
+    "bootstrap": "^4.6.2",
+    "vue": "3.3.9",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.5.0",

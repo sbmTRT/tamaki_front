@@ -1,51 +1,33 @@
 <template>
-  <div id="app" class="wrapper">
     <Header />
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1>Dashboard</h1>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <!-- Your dashboard content goes here -->
-        </div>
-      </section>
+    <Sidebar />
+    <div class="wrapper">
+    <!-- The main app component includes the router view -->
+    <router-view />
     </div>
     <Footer />
-  </div>
 </template>
 
+
 <script>
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.slim.min.js';
+import 'popper.js/dist/umd/popper.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Home from './views/Home.vue';
-import About from './views/About.vue';
+import Sidebar from './components/Sidebar.vue';
 
 export default {
   components: {
     Header,
     Footer,
-    Home,
-    About,
+    Sidebar,
   },
-  data() {
-    return {
-      currentView: 'home', // Set the default view
-    };
-  },
-  // App-level logic goes here
-}
+};
 </script>
 
 <style>
-@import url('https://cdn.jsdelivr.net/npm/admin-lte@3.0.5/dist/css/adminlte.min.css');
+/* Add your custom styles here */
 </style>
