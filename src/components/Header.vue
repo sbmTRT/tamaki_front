@@ -22,10 +22,37 @@
       </div>
     </nav>
   </header>
+  <div>
+    <h1>create-liff-app</h1>
+    <p v-if="message">{{ message }}</p>
+    <p v-if="userid">{{ userid }}</p>
+    <p v-if="diaplayname">{{ diaplayname }}</p>
+    <p v-if="pictureurl">{{ pictureurl }}</p>
+    <p v-if="statusmessage">{{ statusmessage }}</p>
+    <p v-if="error">
+      <code>{{ error }}</code>
+    </p>
+    <!-- <a href="https://developers.line.biz/ja/docs/liff/" target="_blank" rel="noreferrer">
+      LIFF Documentation
+    </a> -->
+  </div>
 </template>
 
-<script>
+
+import liff from "@line/liff";
+
 export default {
+  data() {
+    return {
+      userid: "",
+      message: "",
+      error: "",
+      displayname: "",
+      pictureurl: "",
+      statusmessage: ""
+
+    };
+  },
   mounted() {
     liff
       .init({
@@ -36,10 +63,20 @@ export default {
         if (liff.isLoggedIn()) {
           // Get user profile
           liff.getProfile().then((profile) => {
-            this.displayname = displayName;
+            const userId = profile.userId;
+            const displayName = profile.displayName;
+            const pictureUrl = profile.pictureUrl;
+            const statusMessage = profile.statusMessage;
+            this.userid = 'User ID:'+ userId;
+            this.diaplayname = 'User Name:'+ displayName;
+            this.pictureurl = 'Picture url:'+ pictureUrl;
+            this.statusmessage = 'Status Message:'+ statusMessage;
+            // this.client = "isInClient", liff.isInClient();
           }).catch((error) => {
             console.error('Error getting user profile', error);
           });
+        } else {
+          this.userid = 'User ID: empty';
         }
       }).catch((e) => {
         this.message = "LIFF init failed.";
@@ -49,6 +86,13 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add any custom styles for the header */
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
