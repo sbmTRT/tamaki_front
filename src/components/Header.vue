@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        Student Application Form
+        Hello! {{ diaplayname }}
         <button
           class="navbar-toggler"
           type="button"
@@ -26,7 +26,31 @@
 
 <script>
 export default {
-  // Add any additional configuration or methods here
+  data() {
+    return {
+      displayname: "",
+    };
+  },
+  mounted() {
+    liff
+      .init({
+        liffId: import.meta.env.VITE_LIFF_ID
+      })
+      .then(() => {
+        this.message = "LIFF init succeeded.";
+        if (liff.isLoggedIn()) {
+          // Get user profile
+          liff.getProfile().then((profile) => {
+            this.diaplayname = 'User Name:'+ displayName;
+          }).catch((error) => {
+            console.error('Error getting user profile', error);
+          });
+        }
+      }).catch((e) => {
+        this.message = "LIFF init failed.";
+        this.error = `${e}`;
+      });
+  }
 };
 </script>
 
