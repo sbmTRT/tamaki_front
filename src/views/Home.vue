@@ -35,7 +35,7 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-primary w-25">Submit</button>
+                <button type="submit" class="btn btn-primary col-sm-4 offset-sm-4">Submit</button>
               </div>
             </form>
           </div><!-- /.col -->
