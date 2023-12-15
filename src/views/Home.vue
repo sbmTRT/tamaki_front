@@ -177,7 +177,7 @@
         <div class="col-sm-4">
           <div class="form-group text-sm">
             <label>事務所</label>
-            <input type="text class="form-control form-control-sm bg-lightcyan" readonly="readonly" />
+            <input type="text" class="form-control form-control-sm bg-lightcyan" readonly="readonly" />
           </div>
         </div>
       </div>
