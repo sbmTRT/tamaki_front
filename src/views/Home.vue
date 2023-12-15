@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 offset-md-3">
-            <form @submit.prevent="submitForm" class=”form-inline”>
+            <form @submit.prevent="submitForm" class="form-inline">
               <div class="form-group">
                 <label for="name" class="form-label col-sm-4">Name</label>
                 <input v-model="formData.name" type="text" class="form-control col-sm-8" id="name" placeholder="Enter your name">
