@@ -11,10 +11,13 @@
                     <div class="form-group text-sm">
                       <label for="name">Name</label>
                       <input v-model="formData.name" type="text" class="form-control form-control-sm bg-mistyrose" id="name" placeholder="Enter your name">
+                    </div>
+                  </div>
                   <div class="col-sm-3">
                     <div class="form-group text-sm">
-                  <label for="email">Email address</label>
-                  <input v-model="formData.email" type="email" class="form-control form-control-sm bg-mistyrose" id="email" placeholder="name@example.com">
+                      <label for="email">Email address</label>
+                      <input v-model="formData.email" type="email" class="form-control form-control-sm bg-mistyrose" id="email" placeholder="name@example.com">
+                    </div>
                 </div>
               </div>
             </div>
@@ -26,11 +29,13 @@
                     <div class="form-group text-sm">
                       <label for="address">Address</label>
                       <input v-model="formData.address" type="text" class="form-control form-control-sm bg-mistyrose" id="address" placeholder="123 Main St">
+                    </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group text-sm">
                       <label for="city">City</label>
                       <input v-model="formData.city" type="text" class="form-control form-control-sm bg-mistyrose" id="city" placeholder="City">
+                    </div>
                 </div>
               </div>
             </div>
