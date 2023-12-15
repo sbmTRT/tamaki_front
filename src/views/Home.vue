@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<form @submit.prevent="submitForm">
+<form @submit.prevent="submitForm" class="col-md-12">
   <div class="card">
     <div class="card-body">
       <div class="row">
