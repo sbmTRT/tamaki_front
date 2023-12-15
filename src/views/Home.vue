@@ -34,6 +34,28 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
+
+  <div class="container mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form @submit.prevent="submitForm" class="form-inline" name="login_form" id="login_form">
+            <div class="form-group">
+              <label class="col-sm-3 h5" for="login_id">ログインID</label>
+              <input v-model="formData.name" type="text" class="form-control-lg col-sm-8" name="login_id" id="login_id" placeholder="ログインIDを入力してください">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 h5" for="paassword">パスワード</label>
+              <input v-model="formData.name" type="text" class="form-control-lg col-sm-8" name="paassword" id="paassword" placeholder="パスワードを入力してください">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12 text-center text-danger" for="message"></label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
