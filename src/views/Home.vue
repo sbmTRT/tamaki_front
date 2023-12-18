@@ -1,12 +1,14 @@
 <template>
+<div class="modal-body">
 <form @submit.prevent="submitForm">
   <div class="card">
     <div class="card-body">
       <div class="row">
         <div class="col-sm-3">
           <div class="form-group text-sm">
-            区分<input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
-            </div>
+            <label>区分</label>
+            <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+          </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group text-sm">
@@ -170,6 +172,7 @@
     </div>
   </div>
 </form>
+</div>
 </template>
 
 <script>
