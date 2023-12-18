@@ -1,17 +1,4 @@
 <template>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8"></div>
-    <div class="col-sm-4">
-      <div class="container-fluid">
-        <div class="row float-right">
-          <div class="col-sm-auto text-sm"><b class="font-mistyrose">■</b>：入力必須項目</div>
-          <div class="col-sm-auto text-sm"><b class="font-lightcyan">■</b>：入力項目</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <form @submit.prevent="submitForm" class="col-md-12">
   <div class="card">
     <div class="card-body">
