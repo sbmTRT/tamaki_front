@@ -6,10 +6,9 @@
         <div class="col-sm-3">
           <div class="form-group text-sm">
             <label>区分</label>
-            <Select2 v-model="r_m001c.ope_type" :options="ope_type_list.r" id="r_c_ope_type_m001c" name="r_c_ope_type_m001c" :settings="r_m001c_class.ope_type" />
-            <div id="r_ope_type"/>
+            <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+            <div/>
             <div class="invalid-feedback">
-              {{r_m001c_msg.ope_type}}
             </div>
           </div>
         </div>
