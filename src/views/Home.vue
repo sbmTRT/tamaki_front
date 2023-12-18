@@ -1,5 +1,5 @@
 <template>
-<div class="modal-body">
+<div class="container-fluid">
 <form @submit.prevent="submitForm">
   <div class="card">
     <div class="card-body">
