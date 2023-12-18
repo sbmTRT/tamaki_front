@@ -1,27 +1,26 @@
+
 <template>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        Hello! {{ displayname }}
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <!-- Add any navigation links or components here -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="header">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+          <i class="fas fa-bars"></i>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" v-on:click.stop.prevent="logout" href="#" role="button" id="alert" data-toggle="tooltip" data-html="true" data-container="body" title="ログアウト">
+          <i class="fas fa-power-off"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
 </template>
 
 <script>
