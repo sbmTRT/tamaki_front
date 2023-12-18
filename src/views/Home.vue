@@ -5,8 +5,8 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-3">
-          <div class="form-group text-sm">
           <label>区分</label>
+          <div class="form-group text-sm">
           <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
           </div>
         </div>
