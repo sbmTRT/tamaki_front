@@ -5,12 +5,8 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="form-group text-sm">
-            <label>区分</label>
-            <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
-            <div/>
-            <div class="invalid-feedback">
+            区分<input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
             </div>
-          </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group text-sm">
