@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid col-sm-9 mt-5 mb-5">
+<div class="container-fluid col-sm-9 mt-1 mb-5">
 <form @submit.prevent="submitForm">
   <div class="card">
     <div class="card-body">
