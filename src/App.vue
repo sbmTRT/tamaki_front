@@ -1,21 +1,19 @@
 <template>
   <Header />
-  <Home />
+  <Register />
   <Footer />
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Home from './views/Home.vue';
-import About from './views/About.vue';
+import Register from './views/entry/Register.vue';
 
 export default {
   components: {
     Header,
     Footer,
-    Home,
-    About,
+    Register,
   }
   // App-level logic goes here
 }
