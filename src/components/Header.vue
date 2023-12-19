@@ -3,11 +3,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
   <!-- Container wrapper -->
   <div class="container-fluid">
-    <div class="row col-sm-10">
+    <div class="row">
       <div class="col-sm-2">
         <img src="../assets/img/logo.png" alt="Logo of Tamaki System">
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-10">
         <h5 class="mt-2">玉城町空き家バンク登録システム</h5>
       </div>
     </div>
