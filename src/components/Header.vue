@@ -8,7 +8,7 @@
         <img src="../assets/img/logo.png" alt="Logo of Tamaki System">
       </div>
       <div class="col-sm-10">
-        <h5 class="mt-2">玉城町空き家バンク登録システム</h5>
+        <h5 class="mt-3">玉城町空き家バンク登録システム</h5>
       </div>
     </div>
   </div>
