@@ -4,7 +4,7 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <div class="row col-md-12">
-      <img src="../assets/img/logo.jpeg" alt="Logo of Tamaki System">
+      <img src="../assets/img/logo.png" alt="Logo of Tamaki System">
       <h5>玉城町空き家バンク登録システム</h5>
     </div>
   </div>
