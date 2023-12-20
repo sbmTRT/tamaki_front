@@ -10,23 +10,23 @@
                     <label class="text-success"> 申込者 </label>
                     <form>
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control"
-                                placeholder="geeks@example.com">
+                            <label>氏名</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="form-group mt-2">
-                            <label>Example select</label>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                        <div class="form-group">
+                            <label>住所</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="form-group mt-2">
-                            <label>Example textarea</label>
-                            <textarea class="form-control"></textarea>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <label class="text-success"> 対象物件 </label>
+                    <form>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success shadow-sm col-sm-6" @click="redirectTo('register')">登録カード入力</button>
+                            <button type="button" class="btn btn-secondary shadow-sm col-sm-6">未入力</button>
                         </div>
                     </form>
                 </div>
@@ -37,9 +37,14 @@
 </template>
 
 <script>
+
 export default {
-  // View-specific logic goes here
-}
+    methods: {
+        redirectTo(routeName) {
+            this.$router.push({ name: routeName });
+        }
+    },
+};
 </script>
 
 <style scoped>
