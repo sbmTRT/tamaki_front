@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="card mt-2">
                 <div class="card-body">
-                    <label class="text-success ml-2 mt-2"> 申込者 </label>
+                    <label class="text-success ml-1 mt-1"> 申込者 </label>
                     <form>
                         <div class="form-group">
                             <label>Email address</label>
