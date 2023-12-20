@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-sm-12">
         <img src="../assets/img/logo.png" alt="Logo of Tamaki System">
-        <h5 class="mt-3">玉城町空き家バンク登録システム</h5>
+        <label class="mt-3 ml-1">玉城町空き家バンク登録システム</label>
       </div>
     </div>
   </div>
