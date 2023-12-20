@@ -4,18 +4,18 @@
   <div class="card">
     <div class="card-body">
       <div class="row">
-        <div class="col-sm-3">
-          <label>区分</label>
-          <div class="form-group text-sm">
-          <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+          <div class="col-sm-3">
+              <div class="form-group text-sm">
+                  <label for="division">区分</label>
+                  <input type="text" id="division" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+              </div>
           </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group text-sm">
-            <label>処理日</label>
-            <input type="text" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+          <div class="col-sm-3">
+              <div class="form-group text-sm">
+                  <label for="processingDate">処理日</label>
+                  <input type="text" id="processingDate" class="form-control form-control-sm bg-mistyrose" readonly="readonly" />
+              </div>
           </div>
-        </div>
       </div>
       <div class="row">
         <div class="col-sm-3">
