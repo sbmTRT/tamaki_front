@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <Register />
+  <router-view />
   <Footer />
 </template>
 
