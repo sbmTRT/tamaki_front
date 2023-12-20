@@ -25,8 +25,8 @@
                     <label class="text-success"> 対象物件 </label>
                     <form>
                         <div class="form-group">
-                            <button type="button" class="btn btn-success shadow-sm col-sm-6" @click="redirectTo('register')">登録カード入力</button>
-                            <button type="button" class="btn btn-secondary shadow-sm col-sm-6">未入力</button>
+                            <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('register')">登録カード入力</button>
+                            <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
                         </div>
                     </form>
                 </div>
