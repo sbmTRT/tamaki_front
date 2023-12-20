@@ -6,9 +6,7 @@
         </div>
         <div class="card-body">
             <form>
-                <h2 class="text-center">
-                    申込者
-                </h2>
+                <label class="text-left">申込者</label>
                 <div class="form-group">
                     <label>Email address</label>
                     <input type="email" class="form-control"
