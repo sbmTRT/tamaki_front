@@ -1,6 +1,10 @@
 <template>
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<div class="container-fluid col-sm-9 mt-1 mb-5">
+<button type="button" class="btn btn-outline-success">登録申込</button>
+<button type="button" class="btn btn-outline-success">登録事項変更届出</button>
+<button type="button" class="btn btn-outline-success">登録抹消申出</button>
+<button type="button" class="btn btn-outline-success">利用希望申込</button>
+</div>
 </template>
 
 <script>
