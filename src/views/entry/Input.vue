@@ -1,6 +1,6 @@
 <template>
-<body class="container-sm mt-5">
-    <div class="card mt-5">
+<body class="container-sm">
+    <div class="card">
         <div class="card-header bg-success text-white">
             登録申込
         </div>
