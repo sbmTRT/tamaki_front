@@ -1,23 +1,24 @@
 <template>
 <div class="container-fluid col-sm-9 mt-1 mb-5">
-<form @submit.prevent="submitForm">
-  <div class="card">
-    <div class="card-body">
-      <div class="row mb-2">
-          <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録申込</button>
-      </div>
-      <div class="row mb-2">
-          <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録事項変更届出</button>
-      </div>
-      <div class="row mb-2">
-          <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録抹消申出</button>
-      </div>
-      <div class="row mb-2">
-          <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">利用希望申込</button>
-      </div>
+<div class="card">
+  <div class="card-body">
+    <div class="row mb-2">
+        <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録申込</button>
+    </div>
+    <div class="row mb-2">
+        <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録事項変更届出</button>
+    </div>
+    <div class="row mb-2">
+        <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録抹消申出</button>
+    </div>
+    <div class="row mb-2">
+        <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">利用希望申込</button>
+    </div>
+    <div class="row mb-2 mt-6">
+        <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm col-sm-2">閉じる</button>
     </div>
   </div>
-</form>
+</div>
 </div>
 </template>
 
