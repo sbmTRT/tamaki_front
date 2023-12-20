@@ -1,23 +1,33 @@
 <template>
-  <Header />
-  <router-view />
-  <Footer />
+  <div id="app-wrapper">
+    <Header />
+    <div id="main-content">
+      <router-view />
+    </div>
+    <Footer />
+  </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Register from './views/entry/Register.vue';
 
 export default {
   components: {
     Header,
     Footer,
-    Register,
-  }
-  // App-level logic goes here
-}
+  },
+};
 </script>
 
 <style>
+#app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-content {
+  flex: 1;
+}
 </style>
