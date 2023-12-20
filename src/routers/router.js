@@ -18,27 +18,27 @@ const routes = [
     },
     {
         path: '/register',
-        name: 'Register',
+        name: 'register',
         component: Register,
     },
     {
         path: '/input',
-        name: 'Input',
+        name: 'input',
         component: Input,
     },
     {
         path: '/update',
-        name: 'Update',
+        name: 'update',
         component: Update,
     },
     {
         path: '/application',
-        name: 'Application',
+        name: 'application',
         component: Application,
     },
     {
         path: '/delete',
-        name: 'Delete',
+        name: 'delete',
         component: Delete,
     },
     {
