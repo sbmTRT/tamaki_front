@@ -3,7 +3,7 @@
 <div class="card">
   <div class="card-body">
     <div class="row mb-2 mt-5">
-        <button type="button" class="btn btn-outline-success shadow-sm col-sm-12">登録申込</button>
+        <button type="button" class="btn btn-outline-success shadow-sm col-sm-12" @click="redirectToInput">登録申込</button>
     </div>
     <div class="row mb-2">
         <button type="button" class="btn btn-outline-success shadow-sm col-sm-12">登録事項変更届出</button>
@@ -37,6 +37,9 @@ export default {
     };
   },
   methods: {
+    redirectToInput() {
+      this.$router.push('/input');
+    },
     submitForm() {
       // Handle form submission logic here
       alert(`Form submitted with data: ${JSON.stringify(this.formData)}`);
