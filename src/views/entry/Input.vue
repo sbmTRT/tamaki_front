@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <h2>Input Page</h2>
-    <!-- Bootstrap 5 input form -->
+<body class="container-sm mt-5">
     <form>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput2" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Password">
-      </div>
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+        <h2 class="text-center">
+            Display Form Controls
+        </h2>
+        <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control"
+                placeholder="geeks@example.com">
+        </div>
+        <div class="form-group mt-2">
+            <label>Example select</label>
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group mt-2">
+            <label>Example textarea</label>
+            <textarea class="form-control"></textarea>
+        </div>
     </form>
-  </div>
+</body>
 </template>
 
 <script>
