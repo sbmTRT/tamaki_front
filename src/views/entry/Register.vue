@@ -11,11 +11,11 @@
     <div class="row mb-2">
         <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">登録抹消申出</button>
     </div>
-    <div class="row mb-2">
+    <div class="row mb-10">
         <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">利用希望申込</button>
     </div>
-    <div class="row mb-2 mt-6">
-        <button type="button" class="btn btn-outline-secondary btn-lg shadow-sm col-sm-2">閉じる</button>
+    <div class="row mb-2">
+        <button type="button" class="btn btn-outline-secondary btn-sm shadow-sm col-sm-3">閉じる</button>
     </div>
   </div>
 </div>
