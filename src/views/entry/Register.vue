@@ -14,7 +14,7 @@
     <div class="row mb-10">
         <button type="button" class="btn btn-outline-success shadow-sm col-sm-3">利用希望申込</button>
     </div>
-    <div class="row mb-2 mt-10 col-sm-6 ml-3 mt-5">
+    <div class="row mb-2 col-sm-6 ml-3 mt-5">
         <button type="button" class="btn btn-secondary btn-sm shadow-sm col-sm-3">閉じる</button>
     </div>
   </div>
