@@ -2,7 +2,7 @@
 <body class="container-sm">
   <div class="card">
     <div class="card-body">
-      <form>
+      <form class="mt-3 mb-3">
           <div class="form-group">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('input')">登録申込</button>
           </div>
@@ -15,8 +15,8 @@
           <div class="form-group">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('application')">利用希望申込</button>
           </div>
-          <div class="form-group">
-              <button type="button" class="form-control btn btn-secondary btn-sm shadow-sm">閉じる</button>
+          <div class="form-group mt-3">
+              <button type="button" class="form-control btn btn-secondary shadow-sm col-sm-2">閉じる</button>
           </div>
       </form>
     </div>
