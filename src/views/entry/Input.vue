@@ -34,10 +34,30 @@
                 </div>
             </div>
             <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                <button type="button" class="form-control btn btn-success shadow-sm" @click="redirectTo('application')">登録</button>
+                <button type="button" class="form-control btn btn-success shadow-sm" @click="showConfirmationModal">登録</button>
             </div>
             <div class="form-group d-grid gap-2 col-10 mx-auto">
                 <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
+            </div>
+        </div>
+    </div>
+<!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">確認</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    本当に登録しますか？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-success" @click="register">登録</button>
+                </div>
             </div>
         </div>
     </div>
@@ -52,6 +72,14 @@ export default {
         redirectTo(routeName) {
             this.$router.push({ name: routeName });
         }
+    },
+    showConfirmationModal() {
+        // Show the confirmation modal
+        $('#confirmationModal').modal('show');
+    },
+    register() {
+        // Close the modal
+        $('#confirmationModal').modal('hide');
     },
 };
 </script>
