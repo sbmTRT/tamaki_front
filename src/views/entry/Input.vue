@@ -26,15 +26,15 @@
                             <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('register')">登録カード入力</button>
                             <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
                         </div>
-                    <label class="text-success"> 契約交渉の方法 </label>
-                    <label class="text-success"> . </label>
-                    <label class="text-success"> . </label>
-                    <label class="text-success"> . </label>
+                    <label class="text-success"> 契約交渉の方法 </label><br>
+                    <label class="text-success"> . </label><br>
+                    <label class="text-success"> . </label><br>
+                    <label class="text-success"> . </label><br>
                     <label class="text-success"> . </label>
                 </div>
             </div>
             <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('application')">登録</button>
+                <button type="button" class="form-control btn btn-success shadow-sm" @click="redirectTo('application')">登録</button>
             </div>
             <div class="form-group d-grid gap-2 col-10 mx-auto">
                 <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
