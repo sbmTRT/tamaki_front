@@ -33,11 +33,11 @@
                     <label class="text-success"> . </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
                 <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('application')">登録</button>
             </div>
-            <div class="form-group d-grid gap-2 col-8 mx-auto">
-                <button type="button" class="form-control btn btn-secondary shadow-sm mt-5" @click="redirectTo('register')">戻る</button>
+            <div class="form-group d-grid gap-2 col-10 mx-auto">
+                <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
             </div>
         </div>
     </div>
