@@ -93,8 +93,12 @@ export default {
             this.$router.push({ name: routeName });
         },
         showConfirmationModal() {
-            this.$modal.show('confirmation-modal');
+            $("#confirmation-modal").modal("show");
         },
+    },
+    mounted() {
+        // Show the modal when the component is mounted
+        $("#confirmation-modal").modal("show");
     },
 };
 </script>
