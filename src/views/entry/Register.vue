@@ -26,25 +26,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      formData: {
-        name: '',
-        email: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-      },
-    };
-  },
   methods: {
     redirectTo(routeName) {
       this.$router.push({ name: routeName });
-    },
-    submitForm() {
-      // Handle form submission logic here
-      alert(`Form submitted with data: ${JSON.stringify(this.formData)}`);
     },
     closeTab() {
       window.close();
