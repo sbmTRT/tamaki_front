@@ -16,7 +16,7 @@
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('application')">利用希望申込</button>
           </div>
           <div class="form-group mt-3">
-              <button type="button" class="form-control btn btn-secondary shadow-sm col-sm-2">閉じる</button>
+              <button type="button" class="form-control btn btn-secondary shadow-sm" @click="closeTab">閉じる</button>
           </div>
       </form>
     </div>
@@ -45,6 +45,9 @@ export default {
     submitForm() {
       // Handle form submission logic here
       alert(`Form submitted with data: ${JSON.stringify(this.formData)}`);
+    },
+    closeTab() {
+      window.close();
     },
   },
 };
