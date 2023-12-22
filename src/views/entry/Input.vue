@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                <button type="button" class="form-control btn btn-success shadow-sm" @click="showConfirmationModal">登録</button>
+                <button type="button" class="form-control btn btn-success shadow-sm" @click="redirectTo('application')">登録</button>
             </div>
             <div class="form-group d-grid gap-2 col-10 mx-auto">
                 <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
@@ -43,46 +43,6 @@
     </div>
 </form>
 </body>
-
-<!-- m001c delete modal -->
-<div class="modal fade" id="confirmation-modal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content card-danger card-outline">
-      <div class="modal-header">
-        <h4 class="modal-title">
-          <i class="far fa-trash-alt text-danger"></i>
-          盛土基本情報（削除）
-        </h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row justify-content-center text-sm">
-            <div class="col-sm-4"><b class="text-info mr-1">[支社局]</b></div>
-            <div class="col-sm-4"><b class="text-info mr-1">[事務所]</b></div>
-            <div class="col-sm-4"><b class="text-info mr-1">[道路]</b></div>
-          </div>
-          <div class="row justify-content-center text-sm">
-            <div class="col-sm-4"><b class="text-info mr-1">[ＩＣ(自)]</b></div>
-            <div class="col-sm-4"><b class="text-info mr-1">[盛土番号]</b></div>
-            <div class="col-sm-4"></div>
-          </div>
-          <br />
-          <p class="font-weight-bold text-lg text-center">上記データを削除します。<br />よろしいでしょうか。</p>
-        </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
 </template>
 
 <script>
@@ -91,14 +51,7 @@ export default {
     methods: {
         redirectTo(routeName) {
             this.$router.push({ name: routeName });
-        },
-        showConfirmationModal() {
-            $("#confirmation-modal").modal("show");
-        },
-    },
-    mounted() {
-        // Show the modal when the component is mounted
-        $("#confirmation-modal").modal("show");
+        }
     },
 };
 </script>
