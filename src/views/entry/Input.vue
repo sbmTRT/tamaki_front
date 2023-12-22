@@ -34,22 +34,23 @@
                 </div>
             </div>
             <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                <button type="button" class="form-control btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">登録</button>
+                <button type="button" class="form-control btn btn-success shadow-sm" @click="showConfirmationModal">登録</button>
             </div>
             <div class="form-group d-grid gap-2 col-10 mx-auto">
                 <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
             </div>
         </div>
     </div>
-
-<div>
-  <b-button v-b-modal.modal-1>登録</b-button>
-
-  <b-modal id="modal-1" title="BootstrapVue">
-    <p class="my-4">Hello from modal!</p>
-  </b-modal>
-</div>
-
+        <modal name="confirmation-modal">
+            <div slot="header" class="modal-header">
+                <h5 class="modal-title">確認</h5>
+            </div>
+            <div slot="body" class="modal-body">本当に登録しますか？</div>
+            <div slot="footer" class="modal-footer">
+                <button class="btn btn-secondary" @click="hideConfirmationModal">キャンセル</button>
+                <button class="btn btn-success" @click="register">登録</button>
+            </div>
+        </modal>
 </form>
 </body>
 </template>
@@ -60,7 +61,17 @@ export default {
     methods: {
         redirectTo(routeName) {
             this.$router.push({ name: routeName });
-        }
+        },
+        showConfirmationModal() {
+            this.$modal.show('confirmation-modal');
+        },
+        hideConfirmationModal() {
+            this.$modal.hide('confirmation-modal');
+        },
+        register() {
+            // Close the modal
+            this.hideConfirmationModal();
+        },
     },
 };
 </script>
