@@ -1,35 +1,45 @@
 <template>
-  <div id="app">
-    <button @click="openModal" class="btn btn-primary">Open Register Modal</button>
+<div class="container mt-3">
+  <h3>Modal Example</h3>
+  <p>Click on the button to open the modal.</p>
 
-    <!-- Vue Component for Modal -->
-    <register-modal v-if="isModalOpen" @close="closeModal"></register-modal>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Open modal
+  </button>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
   </div>
+</div>
 </template>
 
 <script>
-import RegisterModal from './Update.vue';
-
 export default {
-  components: {
-    RegisterModal,
-  },
-  data() {
-    return {
-      isModalOpen: false,
-    };
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-    },
-  },
-};
+  // View-specific logic goes here
+}
 </script>
 
-<style>
-/* Add any global styles here */
+<style scoped>
+/* View-specific styles go here */
 </style>
