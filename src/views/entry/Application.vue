@@ -19,7 +19,13 @@
 </template>
 
 <script>
+import { BModal, BButton } from 'bootstrap-vue';
+
 export default {
+  components: {
+    'b-modal': BModal,
+    'b-button': BButton,
+  },
   data() {
     return {
       agreementModalVisible: false,
@@ -39,7 +45,7 @@ export default {
       this.agreementModalVisible = false;
     },
   },
-}
+};
 </script>
 
 <style scoped>
