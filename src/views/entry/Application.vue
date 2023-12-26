@@ -3,7 +3,7 @@
     <button @click="openModal" class="btn btn-primary">Open Register Modal</button>
 
     <!-- Vue Component for Modal -->
-    <register-modal v-if="isModalOpen" @close="closeModal"></register-modal>
+    <register-modal @close="closeModal"></register-modal>
   </div>
 </template>
 
