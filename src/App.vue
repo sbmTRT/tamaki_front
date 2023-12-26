@@ -1,7 +1,7 @@
 <template>
   <div id="app-wrapper">
     <Header />
-      <div id="main-content" class="position-absolute top-0 start-0">
+      <div id="main-content">
         <main>
           <div class="row g-5">
             <div class="col-md-7 col-lg-8">
