@@ -1,9 +1,9 @@
 <template>
 <div class="container-sm">
+          {{ message }}
   <div class="card">
     <div class="card-body">
       <form class="mt-5">
-          <p v-if="diaplayname">{{ diaplayname }}</p>
           <div class="form-group mb-3">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('input')">登録申込</button>
           </div>
@@ -41,8 +41,6 @@ export default {
     return {
       message: "",
       error: "",
-      displayname: "",
-
     };
   },
   mounted() {
@@ -52,17 +50,6 @@ export default {
       })
       .then(() => {
         this.message = "LIFF init succeeded.";
-        if (liff.isLoggedIn()) {
-          // Get user profile
-          liff.getProfile().then((profile) => {
-            const displayName = profile.displayName;
-            this.diaplayname = 'User Name:'+ displayName;
-          }).catch((error) => {
-            console.error('Error getting user profile', error);
-          });
-        } else {
-          this.userid = 'User ID: empty';
-        }
       }).catch((e) => {
         this.message = "LIFF init failed.";
         this.error = `${e}`;
