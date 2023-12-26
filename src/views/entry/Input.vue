@@ -34,12 +34,36 @@
                     </div>
                 </div>
                 <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                    <button type="button" class="form-control btn btn-success shadow-sm" @click="redirectTo('application')">登録</button>
+                    <button type="button" class="form-control btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#myModal">登録</button>
                 </div>
                 <div class="form-group d-grid gap-2 col-10 mx-auto">
                     <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
                 </div>
             </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">お知らせ</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                下記の情報を確認しました。
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">戻る</button>
+            </div>
+
+            </div>
+        </div>
         </div>
     </form>
 </body>
