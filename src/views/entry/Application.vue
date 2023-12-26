@@ -1,16 +1,35 @@
 <template>
-  <div>
-    <h2>Application Page</h2>
-    <!-- About page content goes here -->
+  <div id="app">
+    <button @click="openModal" class="btn btn-primary">Open Register Modal</button>
+
+    <!-- Vue Component for Modal -->
+    <register-modal v-if="isModalOpen" @close="closeModal"></register-modal>
   </div>
 </template>
 
 <script>
+import RegisterModal from './Update.vue';
+
 export default {
-  // View-specific logic goes here
-}
+  components: {
+    RegisterModal,
+  },
+  data() {
+    return {
+      isModalOpen: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    },
+  },
+};
 </script>
 
-<style scoped>
-/* View-specific styles go here */
+<style>
+/* Add any global styles here */
 </style>

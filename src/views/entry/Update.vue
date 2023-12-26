@@ -1,51 +1,54 @@
 <template>
-  <div >
-<!-- Modal -->
-<div v-if="OpenClose" class="modal fade show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display:block">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" @click="OpenCloseFun()" class="btn-close" ></button>
-      </div>
-      <div class="modal-body">
-       <slot></slot>
-      </div>
-      <div class="modal-footer">
-        <button type="button"  @click="OpenCloseFun()" :class="'btn btn-'+variant" >{{$t('Close')}}</button>
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeModal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Your registration form goes here -->
+          <form>
+            <!-- Form fields, labels, etc. -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <!-- Add more form fields as needed -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeModal">Close</button>
+          <button type="button" class="btn btn-primary" @click="register">Register</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </template>
 
 <script>
 export default {
-  name: 'AlertDefault',
-  props: {
-    visible: Boolean,
-    variant:String,
-  },
-  data(){
-    return{
-       OpenClose:this.visible
+  methods: {
+    closeModal() {
+      // Emit close event to the parent
+      this.$emit('close');
+    },
+    register() {
+      // Your registration logic goes here
+      // You can make an API call or perform client-side validation
+      // Close the modal after registration is successful
+      this.closeModal();
     }
-  },
-  methods:{
-        OpenCloseFun(){
-           this.OpenClose =false;
-        },
-  },
-  watch: { 
-      visible: function(newVal, oldVal) { // watch it
-        this.OpenClose =newVal;
-        console.log('new' +newVal+ '==' +oldVal)
-      }
-    }
-
-}
+  }
+};
 </script>
 
 <style scoped>
-/* View-specific styles go here */
+/* Add any custom styles specific to this component */
 </style>
