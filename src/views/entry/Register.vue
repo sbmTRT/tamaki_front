@@ -19,6 +19,7 @@
           <div class="form-group col-8 mx-auto">
               <button type="button" class="form-control btn btn-secondary shadow-sm mt-5" @click="closeTab">閉じる</button>
           </div>
+          <label>First Name</label><input type="text" class="form-control">
       </form>
     </div>
   </div>
