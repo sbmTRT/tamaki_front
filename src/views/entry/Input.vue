@@ -54,7 +54,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                下記の情報を確認しました。
+                {{ message }}
             </div>
 
             <!-- Modal footer -->
@@ -77,6 +77,24 @@ export default {
             this.$router.push({ name: routeName });
         }
     },
+    data() {
+        return {
+        message: "",
+        error: "",
+        };
+    },
+    mounted() {
+        liff
+        .init({
+            liffId: import.meta.env.VITE_LIFF_ID
+        })
+        .then(() => {
+            this.message = "LIFF init succeeded.";
+        }).catch((e) => {
+            this.message = "LIFF init failed.";
+            this.error = `${e}`;
+        });
+    }
 };
 </script>
 
