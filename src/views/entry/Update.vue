@@ -1,41 +1,49 @@
 <template>
-  <!-- Button trigger modal -->
-  <MDBBtn
-    color="primary"
-    aria-controls="exampleModal"
-    @click="exampleModal=true"
-  >
-    Launch demo modal
-  </MDBBtn>
-  <MDBModal
-    id="exampleModal"
-    tabindex="-1"
-    labelledby="exampleModalLabel"
-    v-model="exampleModal"
-  >
-    <MDBModalHeader>
-      <MDBModalTitle id="exampleModalLabel"> Modal title </MDBModalTitle>
-    </MDBModalHeader>
-    <MDBModalBody>...</MDBModalBody>
-    <MDBModalFooter>
-      <MDBBtn color="secondary" @click="exampleModal = false">Close</MDBBtn>
-      <MDBBtn color="primary">Save changes</MDBBtn>
-    </MDBModalFooter>
-  </MDBModal>
+  <div >
+<!-- Modal -->
+<div v-if="OpenClose" class="modal fade show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display:block">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" @click="OpenCloseFun()" class="btn-close" ></button>
+      </div>
+      <div class="modal-body">
+       <slot></slot>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  @click="OpenCloseFun()" :class="'btn btn-'+variant" >{{$t('Close')}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </template>
 
-<script setup lang="ts">
-  import {
-    MDBModal,
-    MDBModalHeader,
-    MDBModalTitle,
-    MDBModalBody,
-    MDBModalFooter,
-    MDBBtn,
-  } from 'mdb-vue-ui-kit';
-  import { ref } from 'vue';
+<script>
+export default {
+  name: 'AlertDefault',
+  props: {
+    visible: Boolean,
+    variant:String,
+  },
+  data(){
+    return{
+       OpenClose:this.visible
+    }
+  },
+  methods:{
+        OpenCloseFun(){
+           this.OpenClose =false;
+        },
+  },
+  watch: { 
+      visible: function(newVal, oldVal) { // watch it
+        this.OpenClose =newVal;
+        console.log('new' +newVal+ '==' +oldVal)
+      }
+    }
 
-  const exampleModal = ref(false);
+}
 </script>
 
 <style scoped>
