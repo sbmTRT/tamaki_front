@@ -33,7 +33,7 @@
                     <label class="text-success"> . </label>
                 </div>
             </div>
-            <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
+            <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto mb-3">
                 <button type="button" class="form-control btn btn-success shadow-sm" @click="redirectTo('application')">登録</button>
             </div>
             <div class="form-group d-grid gap-2 col-10 mx-auto">
