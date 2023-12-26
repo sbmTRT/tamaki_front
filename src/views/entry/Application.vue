@@ -1,43 +1,32 @@
 <template>
-  <div class="container mt-5">
-    <h2>Registration Form</h2>
-    <form @submit.prevent="submitForm">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control-sm" id="username" v-model="formData.username" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control-sm" id="email" v-model="formData.email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control-sm" id="password" v-model="formData.password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-  </div>
+<body>
+    <div class="container-fluid">
+        <form>
+            <div class="card">
+                <div class="card-header bg-success">
+                    <!-- Card Header Content -->
+                    <h5 class="card-title text-white">登録申込</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <label class="text-success">申請者</label>
+                        <div class="ml-3">
+                            <label>氏名</label>
+                            <input type="text" class="form-control" />
+                            <label>住所</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+    </script>
+</body>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      formData: {
-        username: '',
-        email: '',
-        password: ''
-      }
-    };
-  },
-  methods: {
-    submitForm() {
-      // Handle form submission logic here
-      console.log('Form submitted with data:', this.formData);
-      // You can send the form data to the server or perform other actions
-    }
-  }
-};
 </script>
 
 <style scoped>
