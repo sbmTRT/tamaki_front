@@ -1,7 +1,11 @@
 <template>
-  <Header />
-    <router-view />
-  <Footer />
+  <div id="app-wrapper">
+    <Header />
+    <div id="main-content">
+      <router-view />
+    </div>
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -17,4 +21,13 @@ export default {
 </script>
 
 <style>
+#app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-content {
+  flex: 1;
+}
 </style>

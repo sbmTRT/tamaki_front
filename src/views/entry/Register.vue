@@ -1,9 +1,9 @@
 <template>
 <div class="container-sm">
-          {{ message }}
   <div class="card">
     <div class="card-body">
       <form class="mt-5">
+          {{ message }}
           <div class="form-group mb-3">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('input')">登録申込</button>
           </div>
