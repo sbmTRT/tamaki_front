@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import liff from "@line/liff";
 
 export default {
     methods: {
@@ -78,24 +77,9 @@ export default {
             this.$router.push({ name: routeName });
         }
     },
-    data() {
-        return {
-        message: "",
-        error: "",
-        };
+    props: {
+    message: String,
     },
-    mounted() {
-        liff
-        .init({
-            liffId: import.meta.env.VITE_LIFF_ID
-        })
-        .then(() => {
-            this.message = "LIFF init succeeded.";
-        }).catch((e) => {
-            this.message = "LIFF init failed.";
-            this.error = `${e}`;
-        });
-    }
 };
 </script>
 
