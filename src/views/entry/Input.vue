@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
-                    <button type="button" class="form-control btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#myModal">登録</button>
+                    <button type="button" class="form-control btn btn-success shadow-sm  mb-3" data-bs-toggle="modal" data-bs-target="#myModal">登録</button>
                 </div>
                 <div class="form-group d-grid gap-2 col-10 mx-auto">
                     <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('register')">戻る</button>
