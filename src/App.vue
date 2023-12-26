@@ -4,7 +4,7 @@
     <div id="main-content">
       <router-view />
     </div>
-    <Footer />
+    <Footer /><Input :message="message" />
   </div>
 </template>
 
