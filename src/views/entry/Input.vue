@@ -77,9 +77,24 @@ export default {
             this.$router.push({ name: routeName });
         }
     },
-    props: {
-    message: String,
+    data() {
+        return {
+        message: "",
+        error: "",
+        };
     },
+    mounted() {
+        liff
+        .init({
+            liffId: import.meta.env.VITE_LIFF_ID
+        })
+        .then(() => {
+            this.message = "LIFF init succeeded.";
+        }).catch((e) => {
+            this.message = "LIFF init failed.";
+            this.error = `${e}`;
+        });
+    }
 };
 </script>
 
