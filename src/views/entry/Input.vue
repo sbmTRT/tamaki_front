@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <label class="text-success"> 対象物件 </label>
                         <div class="form-group">
-                            <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('register')">登録カード入力</button>
+                            <button type="button" class="btn btn-success shadow-sm" data-toggle="modal" data-target="#registerModal">登録カード入力</button>
                             <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
                         </div>
                     <label class="text-success"> 契約交渉の方法 </label><br>
@@ -42,6 +42,39 @@
         </div>
     </div>
 </form>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Your registration form goes here -->
+        <form>
+          <!-- Form fields, labels, etc. -->
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <!-- Add more form fields as needed -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </template>
 
