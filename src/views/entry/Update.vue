@@ -24,7 +24,7 @@
   </MDBModal>
 </template>
 
-<script>
+<script setup lang="ts">
   import {
     MDBModal,
     MDBModalHeader,
@@ -34,22 +34,8 @@
     MDBBtn,
   } from 'mdb-vue-ui-kit';
   import { ref } from 'vue';
-  export default {
-    components: {
-      MDBModal,
-      MDBModalHeader,
-      MDBModalTitle,
-      MDBModalBody,
-      MDBModalFooter,
-      MDBBtn,
-    },
-    setup() {
-      const exampleModal = ref(false);
-      return {
-        exampleModal,
-      };
-    },
-  };
+
+  const exampleModal = ref(false);
 </script>
 
 <style scoped>
