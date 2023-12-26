@@ -16,7 +16,7 @@
           <div class="form-group mb-3">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('application')">利用希望申込</button>
           </div>
-          <div class="form-group d-grid gap-2 col-8 mx-auto">
+          <div class="form-group col-8 mx-auto">
               <button type="button" class="form-control btn btn-secondary shadow-sm mt-5" @click="closeTab">閉じる</button>
           </div>
       </form>
