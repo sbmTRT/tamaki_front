@@ -1,12 +1,8 @@
 <template>
   <body>
-    <div id="app-wrapper">
       <Header />
-      <div id="main-content">
         <router-view />
-      </div>
       <Footer />
-    </div>
   </body>
 </template>
 
