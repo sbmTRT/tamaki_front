@@ -1,5 +1,5 @@
 <template>
-<body class="container-sm">
+<div class="container-sm">
   <div class="card">
     <div class="card-body">
       <form class="mt-5">
@@ -21,7 +21,7 @@
       </form>
     </div>
   </div>
-</body>
+</div>
 </template>
 
 <script>
