@@ -1,19 +1,21 @@
-<template>
-<div>
-  <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+<!-- YourComponent.vue -->
 
-  <b-modal id="modal-1" title="BootstrapVue">
-    <p class="my-4">Hello from modal!</p>
-  </b-modal>
-</div>
+<template>
+  <div>
+    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+
+    <b-modal id="modal-1" title="BootstrapVue">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
+  </div>
 </template>
 
 <script>
 export default {
-  // View-specific logic goes here
+  // Component-specific logic goes here
 }
 </script>
 
 <style scoped>
-/* View-specific styles go here */
+/* Component-specific styles go here */
 </style>
