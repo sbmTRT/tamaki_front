@@ -1,13 +1,12 @@
-// main.js
-
-import { createApp } from 'vue';
+import {createApp} from 'vue';
 import App from './App.vue';
-import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
-import 'bootstrap-vue/dist/bootstrap-vue.css'; // Import BootstrapVue CSS
-import { BootstrapVue } from 'bootstrap-vue';
+import store from './stores/store';
+import router from './routers/router';
 
+// Create a Vue app instance with the router and store
 const app = createApp(App);
+app.use(store);
+app.use(router);
 
-app.use(BootstrapVue);
-
+// Mount the app to the element with id 'app'
 app.mount('#app');
