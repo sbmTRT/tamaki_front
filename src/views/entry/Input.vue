@@ -11,7 +11,7 @@
                         <label class="text-success"> 申込者 </label>
                             <div class="form-group">
                                 <label>氏名</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" v-model="info">
                             </div>
                             <div class="form-group">
                                 <label>住所</label>
@@ -66,7 +66,11 @@
 </body>
 </template>
 
-<script>
+<script setup>
+import { useStore } from 'vuex'
+const store = useStore()
+
+const info = store.getters['app/getProfile']
 
 export default {
     methods: {
@@ -75,6 +79,7 @@ export default {
         }
     }
 };
+
 </script>
 
 <style scoped>
