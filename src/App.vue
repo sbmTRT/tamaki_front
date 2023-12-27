@@ -6,20 +6,21 @@ import { useStore } from "vuex"
 
 const store = useStore()
 
-export default {
-  mounted() {
-    liff
-      .init({
-        liffId: import.meta.env.VITE_LIFF_ID
-      })
-      .then(() => {
-        store.commit("app/setMessage", "LIFF init succeeded.");
-      }).catch((e) => {
-        store.commit("app/setMessage", "LIFF init failed.");
-        store.commit("app/setError", "Error.");
-      });
+async function initializeLIFF() {
+  try {
+    await liff.init({
+      liffId: import.meta.env.VITE_LIFF_ID
+    });
+    store.commit("app/setMessage", "LIFF init succeeded.");
+  } catch (e) {
+    store.commit("app/setMessage", "LIFF init failed.");
+    store.commit("app/setError", "Error.");
   }
 }
+
+// Call the initialization function
+initializeLIFF();
+
 </script>
 
 <template>
