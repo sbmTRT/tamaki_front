@@ -12,8 +12,7 @@ async function initializeLIFF() {
     await liff
       .init({
         liffId: import.meta.env.VITE_LIFF_ID
-      });
-
+      })
       .then(() => {
         store.commit("app/setMessage", "LIFF init succeeded.");
         if (liff.isLoggedIn()) {
