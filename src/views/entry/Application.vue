@@ -1,4 +1,4 @@
-<!-- <script>
+<script setup>
 import { useStore } from 'vuex';
 
 const store = useStore();
@@ -10,7 +10,7 @@ const error = ref();
 message.value = store.getters['app/getMessage'];
 error.value = store.getters['app/getError'];
 
-</script> -->
+</script>
 
 <template>
     <div>

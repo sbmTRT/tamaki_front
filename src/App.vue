@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import Header from './components/AppHeader.vue'
 import Footer from './components/AppFooter.vue'
 import liff from "@line/liff";
