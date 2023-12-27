@@ -6,10 +6,12 @@ const store = useStore();
 const info = store.getters['app/getProfile'];
 const message = store.getters['app/getMessage']
 
-// Export the function directly
-const redirectTo = (routeName) => {
-    // Use the $router directly without 'this'
-    $router.push({ name: routeName });
+export default {
+    methods: {
+        redirectTo(routeName) {
+        this.$router.push({ name: routeName });
+        },
+    },
 };
 </script>
 
