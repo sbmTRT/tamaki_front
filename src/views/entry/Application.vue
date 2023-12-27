@@ -3,8 +3,6 @@ import { useStore } from 'vuex'
 
 const store = useStore()
 
-store.commit("app/setMessage", "LIFF init succeeded.")
-
 // Use computed to create reactive properties
 const message = store.getters['app/getMessage']
 const error = store.getters['app/getError']
