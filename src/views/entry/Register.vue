@@ -1,13 +1,10 @@
-<script>
-export default {
-  methods: {
-    redirectTo(routeName) {
-      this.$router.push({ name: routeName });
-    },
-    closeTab() {
-      window.close();
-    },
-  },
+<script setup>
+const redirectTo = (routeName) => {
+  $router.push({ name: routeName });
+};
+
+const closeTab = () => {
+  window.close();
 };
 </script>
 
@@ -21,7 +18,7 @@ export default {
     <div class="card-body">
       <form class="mt-5">
           <div class="form-group mb-3">
-              <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('input')">登録申込</button>
+              <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="() => redirectTo('input')">登録申込</button>
           </div>
           <div class="form-group mb-3">
               <button type="button" class="form-control btn btn-outline-success shadow-sm" @click="redirectTo('update')">登録事項変更届出</button>
