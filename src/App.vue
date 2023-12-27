@@ -6,9 +6,6 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-// Dispatch the Vuex action to initialize LIFF
-store.dispatch('app/initLiff');
-
 </script>
 
 <template>
