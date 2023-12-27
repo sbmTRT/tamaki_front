@@ -7,7 +7,7 @@ const redirectTo = (routePath) => {
 };
 
 const closeTab = () => {
-  window.close();
+  liff.closeWindow();
 };
 </script>
 
