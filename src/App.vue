@@ -19,6 +19,7 @@ async function initializeLIFF() {
           // Get user profile
           liff.getProfile().then((profile) => {
             const displayName = profile.displayName;
+            const userId = profile.usereId;
             store.commit("app/setProfile", displayName);
             store.commit("app/setProfileID", userId);
           }).catch((error) => {
