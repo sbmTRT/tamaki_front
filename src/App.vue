@@ -9,10 +9,28 @@ const store = useStore();
 
 async function initializeLIFF() {
   try {
-    await liff.init({
-      liffId: import.meta.env.VITE_LIFF_ID
-    });
-    store.commit("app/setMessage", "LIFF init succeeded.");
+    await liff
+      .init({
+        liffId: import.meta.env.VITE_LIFF_ID
+      });
+
+      .then(() => {
+        store.commit("app/setMessage", "LIFF init succeeded.");
+        if (liff.isLoggedIn()) {
+          // Get user profile
+          liff.getProfile().then((profile) => {
+            const displayName = profile.displayName;
+            store.commit("app/setProfile", displayName);
+          }).catch((error) => {
+            store.commit("app/setMessage", "LIFF init failed.");
+          });
+        } else {
+            store.commit("app/setProfile", "Empty User ID");
+        }
+      }).catch((e) => {
+        this.message = "LIFF init failed.";
+        this.error = `${e}`;
+      });
   } catch (e) {
     store.commit("app/setMessage", "LIFF init failed.");
     store.commit("app/setError", "Error.");

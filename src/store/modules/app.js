@@ -3,6 +3,7 @@ export default {
     state: {
         message: "",
         error: "",
+        info: "",
     },
     getters: {
         getMessage(state, message) {
@@ -11,6 +12,9 @@ export default {
         getError(state, error) {
             return state.error;
         },
+        getProfile(state, info) {
+            return state.info;
+        },
     },
     mutations: {
         setMessage(state, message) {
@@ -18,6 +22,9 @@ export default {
         },
         setError(state, error) {
         state.error = error;
+        },
+        setProfile(state, info) {
+        state.info = info;
         },
     }
 };
