@@ -1,39 +1,18 @@
 <script setup>
 import Header from './components/AppHeader.vue'
 import Footer from './components/AppFooter.vue'
-import liff from "@line/liff";
+import { useStore } from 'vuex';
 
-const { message, error } = reactive({
-  message: "",
-  error: "",
-});
+const store = useStore();
 
-export default {
-  data() {
-    return {
-      message: "",
-      error: "",
-    };
-  },
-  mounted() {
-    liff
-      .init({
-        liffId: import.meta.env.VITE_LIFF_ID
-      })
-      .then(() => {
-        message.value = "LIFF init succeeded.";
-      }).catch((e) => {
-        message.value = "LIFF init failed.";
-        error.value = `${e}`;
-      });
-  }
-};
+// Dispatch the Vuex action to initialize LIFF
+store.dispatch('app/initLiff');
 </script>
 
 <template>
   <div class="container py-4 px-3 mx-auto">
     <Header />
-      <router-view :message="message"/>
+    <router-view />
     <Footer />
   </div>
 </template>
