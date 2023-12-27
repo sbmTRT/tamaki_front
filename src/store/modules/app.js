@@ -4,6 +4,14 @@ export default {
         message: "",
         error: "",
     },
+    getters: {
+        getMessage(state, message) {
+            return state.message;
+        },
+        getError(state, error) {
+            return state.error;
+        },
+    },
     mutations: {
         setMessage(state, message) {
         state.message = message;

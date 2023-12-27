@@ -4,8 +4,8 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 // Access the message and error from the Vuex store
-const message = store.state.app.message;
-const error = store.state.app.error;
+const message = store.getters['app/getMessage'];
+const error = store.getters['app/getError'];
 
 </script>
 
