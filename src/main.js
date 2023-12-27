@@ -2,8 +2,8 @@ import { createApp } from 'vue';
 import { createStore } from 'vuex'
 
 import App from './App.vue';
-import router from './routers';
-import store from './stores';
+import router from './routers/index.js';
+import store from './stores/index.js';
 
 const app = createApp(App);
 
