@@ -1,10 +1,11 @@
 <script setup>
-import Header from './components/AppHeader.vue'
-import Footer from './components/AppFooter.vue'
-import liff from "@line/liff"
-import { useStore } from "vuex"
+import { onMounted } from 'vue';
+import Header from './components/AppHeader.vue';
+import Footer from './components/AppFooter.vue';
+import liff from "@line/liff";
+import { useStore } from "vuex";
 
-const store = useStore()
+const store = useStore();
 
 async function initializeLIFF() {
   try {
@@ -18,15 +19,16 @@ async function initializeLIFF() {
   }
 }
 
-// Call the initialization function
-initializeLIFF();
-
+// Call the initialization function when the component is mounted
+onMounted(() => {
+  initializeLIFF();
+});
 </script>
 
 <template>
   <div class="container py-4 px-3 mx-auto">
     <Header />
-      <router-view/>
+    <router-view/>
     <Footer />
   </div>
 </template>
