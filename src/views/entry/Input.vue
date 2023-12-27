@@ -4,7 +4,6 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 const info = store.getters['app/getProfile'];
-const info_id = store.getters['app/getProfileID'];
 const message = store.getters['app/getMessage']
 
 // Export the function directly
