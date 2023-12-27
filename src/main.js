@@ -6,9 +6,8 @@ import router from './routers/router';
 import store from './store/index';
 
 const app = createApp(App);
-const vuexStore = createStore(store);
 
 app.use(router);
-app.use(vuexStore);
+app.use(store);
 
 app.mount('#app')
