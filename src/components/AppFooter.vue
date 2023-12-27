@@ -1,8 +1,6 @@
 <template>
-    <footer>
-        <center>
-            <p class="text-muted">Copyright &copy; 2023. All rights reserved.</p>
-        </center>
+    <footer class="container">
+        <p class="text-muted">Copyright &copy; 2023. All rights reserved.</p>
     </footer>
 </template>
 
