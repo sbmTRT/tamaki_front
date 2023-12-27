@@ -4,7 +4,9 @@ import Header from './components/AppHeader.vue';
 import Footer from './components/AppFooter.vue';
 import liff from "@line/liff";
 import { useStore } from "vuex";
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const store = useStore();
 
 async function initializeLIFF() {
