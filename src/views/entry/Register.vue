@@ -5,6 +5,10 @@ const router = useRouter()
 const redirectTo = (routePath) => {
   router.push(routePath);
 };
+
+const closeTab = () => {
+  window.close();
+};
 </script>
 
 <style scoped>
