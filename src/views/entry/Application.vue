@@ -3,13 +3,9 @@ import { useStore } from 'vuex'
 
 const store = useStore()
 
-const message = ref()
-const error = ref()
-
-// Access the message and error from the Vuex store
-message.value = store.getters['app/getMessage']
-error.value = store.getters['app/getError']
-
+// Use computed to create reactive properties
+const message = computed(() => store.getters['app/getMessage'])
+const error = computed(() => store.getters['app/getError'])
 </script>
 
 <template>
