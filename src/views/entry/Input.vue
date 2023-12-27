@@ -43,27 +43,24 @@
         </div>
         <!-- The Modal -->
         <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">お知らせ</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            ＜注意＞。玉城町では、情報の。。。。。
+                        </div>
+                    </div>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                        <label class="form-check-label">上記を確認しました。</label>
+                    </div>
+                    <div class="col-6 mx-auto mt-5">
+                        <button type="button" class="form-control btn btn-success btn-block" data-bs-dismiss="modal">承認</button>
+                    </div>
+                </div>
+                </div>
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                {{ message }}
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">戻る</button>
-            </div>
-
-            </div>
-        </div>
         </div>
     </form>
 </body>
@@ -76,24 +73,6 @@ export default {
         redirectTo(routeName) {
             this.$router.push({ name: routeName });
         }
-    },
-    data() {
-        return {
-        message: "",
-        error: "",
-        };
-    },
-    mounted() {
-        liff
-        .init({
-            liffId: import.meta.env.VITE_LIFF_ID
-        })
-        .then(() => {
-            this.message = "LIFF init succeeded.";
-        }).catch((e) => {
-            this.message = "LIFF init failed.";
-            this.error = `${e}`;
-        });
     }
 };
 </script>
