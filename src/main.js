@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 
 import App from './App.vue';
 import router from './routers/router';
-import store from './store';
+import store from './store/index';
 
 const app = createApp(App);
 const vuexStore = createStore(store);
