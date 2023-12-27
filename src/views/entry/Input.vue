@@ -1,16 +1,14 @@
 
 <script setup>
-import { useStore } from 'vuex'
-const store = useStore()
+import { useStore } from 'vuex';
 
-const info = store.getters['app/getProfile']
+const store = useStore();
+const info = store.getters['app/getProfile'];
 
-export default {
-    methods: {
-        redirectTo(routeName) {
-            this.$router.push({ name: routeName });
-        }
-    }
+// Export the function directly
+const redirectTo = (routeName) => {
+    // Use the $router directly without 'this'
+    $router.push({ name: routeName });
 };
 </script>
 
