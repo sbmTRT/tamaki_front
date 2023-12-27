@@ -1,3 +1,24 @@
+
+<script setup>
+import { useStore } from 'vuex'
+const store = useStore()
+
+const info = store.getters['app/getProfile']
+
+export default {
+    methods: {
+        redirectTo(routeName) {
+            this.$router.push({ name: routeName });
+        }
+    }
+};
+</script>
+
+<style scoped>
+/* View-specific styles go here */
+</style>
+
+
 <template>
 <body class="container-sm">
     <form>
@@ -65,23 +86,3 @@
     </form>
 </body>
 </template>
-
-<script setup>
-import { useStore } from 'vuex'
-const store = useStore()
-
-const info = store.getters['app/getProfile']
-
-export default {
-    methods: {
-        redirectTo(routeName) {
-            this.$router.push({ name: routeName });
-        }
-    }
-};
-
-</script>
-
-<style scoped>
-/* View-specific styles go here */
-</style>

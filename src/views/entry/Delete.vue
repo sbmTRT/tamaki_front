@@ -1,5 +1,14 @@
-<template>
+<script>
+export default {
+  // View-specific logic goes here
+}
+</script>
 
+<style scoped>
+/* View-specific styles go here */
+</style>
+
+<template>
 <div class="container mt-3">
   <h3>Modal Example</h3>
   <p>Click on the button to open the modal.</p>
@@ -35,12 +44,3 @@
 </div>
 </template>
 
-<script>
-export default {
-  // View-specific logic goes here
-}
-</script>
-
-<style scoped>
-/* View-specific styles go here */
-</style>

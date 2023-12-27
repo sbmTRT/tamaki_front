@@ -1,3 +1,14 @@
+
+<script>
+export default {
+  // View-specific logic goes here
+}
+</script>
+
+<style scoped>
+/* View-specific styles go here */
+</style>
+
 <template>
   <main>
     <div class="row g-5">
@@ -28,13 +39,3 @@
     </div>
   </main>
 </template>
-
-<script>
-export default {
-  // View-specific logic goes here
-}
-</script>
-
-<style scoped>
-/* View-specific styles go here */
-</style>

@@ -1,3 +1,20 @@
+<script>
+export default {
+  methods: {
+    redirectTo(routeName) {
+      this.$router.push({ name: routeName });
+    },
+    closeTab() {
+      window.close();
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Add any custom styles for this component */
+</style>
+
 <template>
 <div class="container-sm">
   <div class="card">
@@ -23,20 +40,3 @@
   </div>
 </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    redirectTo(routeName) {
-      this.$router.push({ name: routeName });
-    },
-    closeTab() {
-      window.close();
-    },
-  },
-};
-</script>
-
-<style scoped>
-/* Add any custom styles for this component */
-</style>
