@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from '../routers/router.js';
 
-// Import our custom CSS
-import '../scss/styles.scss'
+// // Import our custom CSS
+// import '../scss/styles.scss'
 
 // Import only the Bootstrap components we need
 import { Popover } from 'bootstrap';
