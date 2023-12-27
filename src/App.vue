@@ -14,12 +14,12 @@ async function initializeLIFF() {
         liffId: import.meta.env.VITE_LIFF_ID
       })
       .then(() => {
-        store.commit("app/setMessage", "LIFF init succeeded.");
         if (liff.isLoggedIn()) {
           // Get user profile
           liff.getProfile().then((profile) => {
             const displayName = profile.displayName;
             const userId = profile.usereId;
+            store.commit("app/setMessage", "LIFF init succeeded.");
             store.commit("app/setProfile", displayName);
             store.commit("app/setProfileID", userId);
           }).catch((error) => {

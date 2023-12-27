@@ -5,6 +5,7 @@ import { useStore } from 'vuex';
 const store = useStore();
 const info = store.getters['app/getProfile'];
 const info_id = store.getters['app/getProfileID'];
+const message = store.getters['app/getMessage']
 
 // Export the function directly
 const redirectTo = (routeName) => {
@@ -35,7 +36,7 @@ const redirectTo = (routeName) => {
                             </div>
                             <div class="form-group">
                                 <label>住所</label>
-                                <input type="text" class="form-control" v-model="info_id">
+                                <input type="text" class="form-control" v-model="message">
                             </div>
                     </div>
                 </div>
