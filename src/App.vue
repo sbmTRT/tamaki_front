@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import Header from './components/AppHeader.vue'
 import Footer from './components/AppFooter.vue'
 import liff from "@line/liff";
@@ -6,13 +6,7 @@ import { useStore } from "vuex";
 
 const store = useStore();
 
-export default { 
-  data() {
-    return {
-      message: "",
-      error: "",
-    };
-  },
+export default {
   mounted() {
     liff
       .init({
