@@ -10,11 +10,11 @@ const error = ref();
 message.value = store.getters['app/getMessage'];
 error.value = store.getters['app/getError'];
 
-</script>
+</script> -->
 
 <template>
     <div>
         <p>{{ message }}</p>
         <p>{{ error }}</p>
     </div>
-</template> -->
+</template>
