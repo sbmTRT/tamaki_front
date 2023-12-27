@@ -46,6 +46,7 @@ onMounted(() => {
 <template>
   <div class="container py-4 px-3 mx-auto">
     <Header />
+    {{displayName}}
     <router-view/>
     <Footer />
   </div>
