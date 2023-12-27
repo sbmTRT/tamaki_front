@@ -1,14 +1,14 @@
 <script setup>
-import { useStore } from 'vuex';
+import { useStore } from 'vuex'
 
-const store = useStore();
+const store = useStore()
 
-const message = ref();
-const error = ref();
+const message = ref()
+const error = ref()
 
 // Access the message and error from the Vuex store
-message.value = store.getters['app/getMessage'];
-error.value = store.getters['app/getError'];
+message.value = store.getters['app/getMessage']
+error.value = store.getters['app/getError']
 
 </script>
 

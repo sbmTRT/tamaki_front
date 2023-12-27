@@ -1,10 +1,10 @@
 <script setup>
 import Header from './components/AppHeader.vue'
 import Footer from './components/AppFooter.vue'
-import liff from "@line/liff";
-import { useStore } from "vuex";
+import liff from "@line/liff"
+import { useStore } from "vuex"
 
-const store = useStore();
+const store = useStore()
 
 export default {
   mounted() {
@@ -19,7 +19,7 @@ export default {
         store.commit("app/setError", "Error.");
       });
   }
-};
+}
 </script>
 
 <template>
