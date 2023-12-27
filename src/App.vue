@@ -20,11 +20,13 @@ async function initializeLIFF() {
           liff.getProfile().then((profile) => {
             const displayName = profile.displayName;
             store.commit("app/setProfile", displayName);
+            store.commit("app/setProfileID", userId);
           }).catch((error) => {
             store.commit("app/setMessage", "LIFF init failed.");
           });
         } else {
-            store.commit("app/setProfile", "Empty User ID");
+            store.commit("app/setProfile", "Empty User Name");
+            store.commit("app/setProfileID", "Empty User ID");
         }
       }).catch((e) => {
         this.message = "LIFF init failed.";

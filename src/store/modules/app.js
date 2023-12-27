@@ -4,6 +4,7 @@ export default {
         message: "",
         error: "",
         info: "",
+        info_id: "",
     },
     getters: {
         getMessage(state, message) {
@@ -15,6 +16,9 @@ export default {
         getProfile(state, info) {
             return state.info;
         },
+        getProfileID(state, info_id) {
+            return state.info_id;
+        },
     },
     mutations: {
         setMessage(state, message) {
@@ -25,6 +29,9 @@ export default {
         },
         setProfile(state, info) {
         state.info = info;
+        },
+        setProfileID(state, info_id) {
+        state.info_id = info_id;
         },
     }
 };
