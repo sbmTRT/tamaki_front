@@ -29,12 +29,12 @@ const redirectTo = (routePath) => {
             <div class="card-body">
                 <div class="card mt-2">
                     <div class="card-body">
-                        <label class="text-success"> 申込者 </label>
-                            <div class="form-group">
+                        <label class="text-success mb-4"> 申込者 </label>
+                            <div class="form-group mb-4">
                                 <label>氏名</label>
                                 <input type="text" class="form-control" v-model="info">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label>住所</label>
                                 <input type="text" class="form-control" v-model="message">
                             </div>
@@ -42,10 +42,10 @@ const redirectTo = (routePath) => {
                 </div>
                 <div class="card mt-2">
                     <div class="card-body">
-                        <label class="text-success"> 対象物件 </label>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('/menu')">登録カード入力</button>
-                                <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
+                        <label class="text-success mb-4"> 対象物件 </label>
+                            <div class="form-group mb-4">
+                                <button type="button" class="btn btn-success shadow-sm mx-2" @click="redirectTo('/menu')">登録カード入力</button>
+                                <button type="button" class="btn btn-secondary shadow-sm">未入力</button>
                             </div>
                         <label class="text-success"> 契約交渉の方法 </label><br>
                         <label class="text-success"> . </label><br>
