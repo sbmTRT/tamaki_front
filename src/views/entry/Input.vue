@@ -44,7 +44,7 @@ const redirectTo = (routePath) => {
                     <div class="card-body">
                         <label class="text-success"> 対象物件 </label>
                             <div class="form-group">
-                                <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('/register')">登録カード入力</button>
+                                <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('/menu')">登録カード入力</button>
                                 <div> </div>
                                 <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
                             </div>
@@ -59,7 +59,7 @@ const redirectTo = (routePath) => {
                     <button type="button" class="form-control btn btn-success shadow-sm  mb-3" data-bs-toggle="modal" data-bs-target="#myModal">登録</button>
                 </div>
                 <div class="form-group d-grid gap-2 col-10 mx-auto">
-                    <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('/register')">戻る</button>
+                    <button type="button" class="form-control btn btn-secondary shadow-sm" @click="redirectTo('/menu')">戻る</button>
                 </div>
             </div>
         </div>

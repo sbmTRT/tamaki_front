@@ -2,7 +2,7 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Register from '../views/entry/Register.vue';
+import Menu from '../views/entry/Menu.vue';
 import Input from '../views/entry/Input.vue';
 import Application from '../views/entry/Application.vue';
 import Delete from '../views/entry/Delete.vue';
@@ -14,12 +14,12 @@ import List from '../views/member/List.vue';
 const routes = [
     {
         path: '/',
-        redirect: '/register',
+        redirect: '/menu',
     },
     {
-        path: '/register',
-        name: 'register',
-        component: Register,
+        path: '/menu',
+        name: 'menu',
+        component: Menu,
     },
     {
         path: '/input',
