@@ -45,6 +45,7 @@ const redirectTo = (routePath) => {
                         <label class="text-success"> 対象物件 </label>
                             <div class="form-group">
                                 <button type="button" class="btn btn-success shadow-sm" @click="redirectTo('/register')">登録カード入力</button>
+                                <div> </div>
                                 <button type="button" class="btn btn-secondary shadow-sm ml-2">未入力</button>
                             </div>
                         <label class="text-success"> 契約交渉の方法 </label><br>
