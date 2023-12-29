@@ -10,20 +10,24 @@ const store = useStore();
 const info = store.getters['app/getProfile'];
 const message = store.getters['app/getMessage']
 
-const uploadedImage = ref(null);
+const uploadedImages = ref([]);
 
 const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    const files = event.target.files;
 
-    if (file) {
-        uploadedImage.value = {
-        name: file.name,
-        size: file.size,
-        type: file.type,
-        url: URL.createObjectURL(file),
-        };
+    if (files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        uploadedImages.value.push({
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            url: URL.createObjectURL(file),
+        });
+        }
     }
-};;
+};
 
 const redirectTo = (routePath) => {
     router.push(routePath);
@@ -31,7 +35,10 @@ const redirectTo = (routePath) => {
 </script>
 
 <style scoped>
-/* View-specific styles go here */
+.uploaded-image {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
 </style>
 
 
@@ -74,12 +81,13 @@ const redirectTo = (routePath) => {
                     <div class="card-body">
                         <label class="text-success mb-4">アップロード画像</label>
                         <div class="form-group mb-4">
-                            <input type="file" @change="handleFileChange" />
-                            <p v-if="uploadedImage">Uploaded Image Details:</p>
-                            <p v-if="uploadedImage">File Name: {{ uploadedImage.name }}</p>
-                            <p v-if="uploadedImage">File Size: {{ uploadedImage.size }} bytes</p>
-                            <p v-if="uploadedImage">File url: {{ uploadedImage.url }}</p>
-                            <img :src="uploadedImage && uploadedImage.url" alt="Uploaded" v-if="uploadedImage" />
+                            <input type="file" multiple @change="handleFileChange" />
+                            <p v-if="uploadedImages.length > 0">Uploaded Image Details:</p>
+                            <div v-for="(image, index) in uploadedImages" :key="index">
+                                <p>File Name: {{ image.name }}</p>
+                                <p>File Size: {{ image.size }} bytes</p>
+                                <img :src="image.url" alt="Uploaded" class="uploaded-image"/>
+                            </div>
                         </div>
                     </div>
                 </div>
