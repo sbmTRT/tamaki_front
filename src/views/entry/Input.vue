@@ -2,12 +2,28 @@
 <script setup>
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 const router = useRouter()
 const store = useStore();
 
 const info = store.getters['app/getProfile'];
 const message = store.getters['app/getMessage']
+
+const uploadedImage = ref(null);
+
+const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        uploadedImage.value = {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        url: URL.createObjectURL(file),
+        };
+    }
+};;
 
 const redirectTo = (routePath) => {
     router.push(routePath);
@@ -52,6 +68,19 @@ const redirectTo = (routePath) => {
                         <label class="text-success"> . </label><br>
                         <label class="text-success"> . </label><br>
                         <label class="text-success"> . </label>
+                    </div>
+                </div>      <!-- File Upload Section -->
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <label class="text-success mb-4">アップロード画像</label>
+                        <div class="form-group mb-4">
+                            <input type="file" @change="handleFileChange" />
+                            <p v-if="uploadedImage">Uploaded Image Details:</p>
+                            <p v-if="uploadedImage">File Name: {{ uploadedImage.name }}</p>
+                            <p v-if="uploadedImage">File Size: {{ uploadedImage.size }} bytes</p>
+                            <p v-if="uploadedImage">File url: {{ uploadedImage.url }}</p>
+                            <img :src="uploadedImage && uploadedImage.url" alt="Uploaded" v-if="uploadedImage" />
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
