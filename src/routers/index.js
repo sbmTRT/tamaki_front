@@ -40,6 +40,7 @@ const routes = [
         path: '/delete',
         name: 'delete',
         component: Delete,
+        props: (route) => ({ uploadedImages: route.params.uploadedImages }),
     },
     {
         path: '/add',

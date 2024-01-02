@@ -12,11 +12,19 @@ const message = store.getters['app/getMessage']
 
 const uploadedImages = ref([]);
 
+const maxImages = 5;
+
+const deleteImage = (index) => {
+    uploadedImages.value.splice(index, 1);
+};
+
 const handleFileChange = (event) => {
     const files = event.target.files;
 
     if (files.length > 0) {
-        for (let i = 0; i < files.length; i++) {
+        const remainingSlots = maxImages - uploadedImages.value.length;
+
+        for (let i = 0; i < Math.min(remainingSlots, files.length); i++) {
         const file = files[i];
 
         uploadedImages.value.push({
@@ -33,14 +41,6 @@ const redirectTo = (routePath) => {
     router.push(routePath);
 };
 </script>
-
-<style scoped>
-.uploaded-image {
-  width: 200px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-</style>
-
 
 <template>
 <body class="container-sm">
@@ -81,14 +81,15 @@ const redirectTo = (routePath) => {
                     <div class="card-body">
                         <label class="text-success mb-4">アップロード画像</label>
                         <div class="form-group mb-4">
-                            <input type="file" multiple @change="handleFileChange" />
-                            <p v-if="uploadedImages.length > 0">Uploaded Image Details:</p>
-                            <div v-for="(image, index) in uploadedImages" :key="index">
-                                <p>File Name: {{ image.name }}</p>
-                                <p>File Size: {{ image.size }} bytes</p>
-                                <img :src="image.url" alt="Uploaded" class="uploaded-image"/>
+                            <input type="file" multiple @change="handleFileChange" :disabled="uploadedImages.length >= maxImages"/><br>
+                            <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロード画像の詳細</label>
+                            <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6">
+                                <img :src="image.url" alt="Uploaded" class="uploaded-image w-100" /><br>
+                                <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button>
+                                <p>ファイル名: {{ image.name }}</p>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-success w-100 mx-auto rounded-0" v-if="uploadedImages.length" @click="redirectTo({ name: 'delete', params: { uploadedImages: uploadedImages.value } })">送信</button>
                     </div>
                 </div>
                 <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
