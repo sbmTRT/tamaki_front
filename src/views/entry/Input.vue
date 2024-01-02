@@ -1,16 +1,17 @@
-
 <script setup>
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
-const router = useRouter()
+const router = useRouter();
 const store = useStore();
 
-const info = store.getters['app/getProfile'];
-const message = store.getters['app/getMessage']
+// Use local variables for two-way data binding
+const infoInput = ref(store.getters['app/getProfile']);
+const messageInput = ref(store.getters['app/getMessage']);
 
 const uploadedImages = ref([]);
+const confirmedImages = ref([]);
 
 const maxImages = 5;
 
@@ -18,21 +19,37 @@ const deleteImage = (index) => {
     uploadedImages.value.splice(index, 1);
 };
 
+const uploadImage = (index) => {
+    // Directly push the image object from uploadedImages to confirmedImages
+    confirmedImages.value.push(uploadedImages.value[index]);
+    store.commit("app/setImages", confirmedImages.value);
+    deleteImage(index);
+};
+
 const handleFileChange = (event) => {
     const files = event.target.files;
 
     if (files.length > 0) {
         const remainingSlots = maxImages - uploadedImages.value.length;
+        const filesToAdd = Math.min(remainingSlots, files.length);
 
-        for (let i = 0; i < Math.min(remainingSlots, files.length); i++) {
-        const file = files[i];
+        for (let i = 0; i < filesToAdd; i++) {
+            const file = files[i];
 
-        uploadedImages.value.push({
-            name: file.name,
-            size: file.size,
-            type: file.type,
-            url: URL.createObjectURL(file),
-        });
+            uploadedImages.value.push({
+                name: file.name,
+                size: file.size,
+                type: file.type,
+                url: URL.createObjectURL(file),
+            });
+        }
+        const exceedingFiles = files.length - filesToAdd;
+        if (exceedingFiles > 0) {
+            alert(`アップロードできる画像は ${maxImages} 個までです。超過したファイルは無視されます。`);
+            event.target.value = null;
+            // Clear both uploadedImages and confirmedImages
+            uploadedImages.value = [];
+            confirmedImages.value = [];
         }
     }
 };
@@ -40,6 +57,7 @@ const handleFileChange = (event) => {
 const redirectTo = (routePath) => {
     router.push(routePath);
 };
+
 </script>
 
 <template>
@@ -81,15 +99,24 @@ const redirectTo = (routePath) => {
                     <div class="card-body">
                         <label class="text-success mb-4">アップロード画像</label>
                         <div class="form-group mb-4">
-                            <input type="file" multiple @change="handleFileChange" :disabled="uploadedImages.length >= maxImages"/><br>
+                            <label class="input-group-text" for="inputGroupFile">ファイルを選択する</label>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="inputGroupFile"
+                                    multiple
+                                    @change="handleFileChange"
+                                    :disabled="uploadedImages.length >= maxImages"
+                                    style="display: none"
+                                    accept="image/*"
+                                /><br>
                             <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロード画像の詳細</label>
-                            <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6">
+                            <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6 mb-4">
                                 <img :src="image.url" alt="Uploaded" class="uploaded-image w-100" /><br>
-                                <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button>
-                                <p>ファイル名: {{ image.name }}</p>
+                                <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button><br>
+                                <button type="button" class="btn btn-success w-100 mx-auto rounded-0" @click="uploadImage(index)">送信</button>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success w-100 mx-auto rounded-0" v-if="uploadedImages.length" @click="redirectTo({ name: 'delete', params: { uploadedImages: uploadedImages.value } })">送信</button>
                     </div>
                 </div>
                 <div class="form-group mt-4  d-grid gap-2 col-10 mx-auto">
@@ -115,7 +142,7 @@ const redirectTo = (routePath) => {
                         <label class="form-check-label">上記を確認しました。</label>
                     </div>
                     <div class="col-6 mx-auto mt-5">
-                        <button type="button" class="form-control btn btn-success btn-block" data-bs-dismiss="modal">承認</button>
+                        <button type="button" class="form-control btn btn-success btn-block" data-bs-dismiss="modal" @click="redirectTo('/application')">承認</button>
                     </div>
                 </div>
                 </div>

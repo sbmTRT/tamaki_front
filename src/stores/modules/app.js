@@ -5,6 +5,7 @@ export default {
         error: "",
         info: "",
         info_id: "",
+        images: [],
     },
     getters: {
         getMessage(state, message) {
@@ -15,17 +16,23 @@ export default {
         },
         getProfile(state, info) {
             return state.info;
-        }
+        },
+        getImages(state) {
+            return state.images;
+        },
     },
     mutations: {
         setMessage(state, message) {
-        state.message = message;
+            state.message = message;
         },
         setError(state, error) {
-        state.error = error;
+            state.error = error;
         },
         setProfile(state, info) {
-        state.info = info;
-        }
+            state.info = info;
+        },
+        setImages(state, images) {
+            state.images = images;
+        },
     }
 };
