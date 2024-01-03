@@ -13,18 +13,38 @@ const messageInput = ref(store.getters['app/getMessage']);
 const uploadedImages = ref([]);
 const confirmedImages = ref([]);
 
-const maxImages = 5;
-
 const deleteImage = (index) => {
     uploadedImages.value.splice(index, 1);
 };
 
+const clearImage = () => {
+    uploadedImages.value = [];
+    confirmedImages.value = [];
+};
+
 const uploadImage = (index) => {
-    // Directly push the image object from uploadedImages to confirmedImages
+    // Clear confirmedImages array
+    confirmedImages.value = [];
+
+    // Get the existing images from the store
+    const existingImages = ref(store.getters['app/getImages']);
+
+    // If there are existing images, use them
+    if (existingImages.value.length > 0) {
+        confirmedImages.value = existingImages.value;
+    }
+
+    // Push the new image to confirmedImages
     confirmedImages.value.push(uploadedImages.value[index]);
-    store.commit("app/setImages", confirmedImages.value);
+
+    // Update the Vuex store
+    store.commit('app/setImages', confirmedImages.value);
+
+    // Delete the image from uploadedImages
     deleteImage(index);
 };
+
+const maxImages = 5;
 
 const handleFileChange = (event) => {
     const files = event.target.files;
@@ -33,23 +53,20 @@ const handleFileChange = (event) => {
         const remainingSlots = maxImages - uploadedImages.value.length;
         const filesToAdd = Math.min(remainingSlots, files.length);
 
-        for (let i = 0; i < filesToAdd; i++) {
-            const file = files[i];
-
-            uploadedImages.value.push({
-                name: file.name,
-                size: file.size,
-                type: file.type,
-                url: URL.createObjectURL(file),
-            });
-        }
         const exceedingFiles = files.length - filesToAdd;
         if (exceedingFiles > 0) {
             alert(`アップロードできる画像は ${maxImages} 個までです。超過したファイルは無視されます。`);
-            event.target.value = null;
-            // Clear both uploadedImages and confirmedImages
-            uploadedImages.value = [];
-            confirmedImages.value = [];
+        }else{
+            for (let i = 0; i < filesToAdd; i++) {
+                const file = files[i];
+                uploadedImages.value.push({
+                    name: file.name,
+                    size: file.size,
+                    type: file.type,
+                    url: URL.createObjectURL(file),
+                });
+            }
+            alert(` ${uploadedImages.value.length} 画像は。アップロードされます。`);
         }
     }
 };
@@ -99,7 +116,7 @@ const redirectTo = (routePath) => {
                     <div class="card-body">
                         <label class="text-success mb-4">アップロード画像</label>
                         <div class="form-group mb-4">
-                            <label class="input-group-text" for="inputGroupFile">ファイルを選択する</label>
+                            <label class="input-group-text btn btn-secondary mx-2" for="inputGroupFile">画像を選択する</label>
                                 <input
                                     type="file"
                                     class="form-control"
@@ -109,8 +126,9 @@ const redirectTo = (routePath) => {
                                     :disabled="uploadedImages.length >= maxImages"
                                     style="display: none"
                                     accept="image/*"
-                                /><br>
-                            <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロード画像の詳細</label>
+                                />
+                                <button type="button" class="btn btn-outline-dark shadow-sm" v-if="uploadedImages.length" @click="clearImage()">クリア画像</button>
+                            <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロードされた画像の詳細</label>
                             <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6 mb-4">
                                 <img :src="image.url" alt="Uploaded" class="uploaded-image w-100" /><br>
                                 <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button><br>
