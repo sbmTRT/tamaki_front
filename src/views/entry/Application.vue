@@ -15,8 +15,8 @@
                     </a>
                 </div>
                 <div class="col-sm-6 mx-auto mb-4">
-                    <button type="button" class="btn btn-success shadow-sm" v-if="uploadedImages.length">すべてダウンロード</button>
-                    <button type="button" class="btn btn-danger shadow-sm mx-2" v-if="uploadedImages.length">すべてクリア</button><br>
+                    <button type="button" class="btn btn-success shadow-sm" v-if="uploadedImages.length" @click="downloadAllImages()">すべてダウンロード</button>
+                    <button type="button" class="btn btn-danger shadow-sm mx-2" v-if="uploadedImages.length" @click="deleteAllImages()">すべてクリア</button><br>
                     <button type="button" class="form-control btn btn-secondary shadow-sm mt-4" @click="redirectTo('/input')">戻る</button><br>
                 </div>
             </div>

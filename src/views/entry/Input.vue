@@ -131,8 +131,8 @@ const redirectTo = (routePath) => {
                             <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロードされた画像の詳細</label>
                             <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6 mb-4">
                                 <img :src="image.url" alt="Uploaded" class="uploaded-image w-100" /><br>
-                                <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button><br>
-                                <button type="button" class="btn btn-success w-100 mx-auto rounded-0" @click="uploadImage(index)">送信</button>
+                                <button type="button" class="btn btn-success w-100 mx-auto rounded-0" @click="uploadImage(index)">送信</button><br>
+                                <button type="button" class="btn btn-danger w-100 mx-auto rounded-0" @click="deleteImage(index)">削除</button>
                             </div>
                         </div>
                     </div>
