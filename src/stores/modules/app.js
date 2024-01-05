@@ -6,6 +6,7 @@ export default {
         info: "",
         info_id: "",
         images: [],
+        uploadimages: []
     },
     getters: {
         getMessage(state, message) {
@@ -20,6 +21,9 @@ export default {
         getImages(state) {
             return state.images;
         },
+        getUploadImages(state) {
+            return state.uploadimages;
+        }
     },
     mutations: {
         setMessage(state, message) {
@@ -34,5 +38,8 @@ export default {
         setImages(state, images) {
             state.images = images;
         },
+        setUploadImages(state, uploadimages) {
+            state.uploadimages = uploadimages;
+        }
     }
 };

@@ -9,9 +9,14 @@ const store = useStore();
 // Use local variables for two-way data binding
 const infoInput = ref(store.getters['app/getProfile']);
 const messageInput = ref(store.getters['app/getMessage']);
+const remainingImages = ref(store.getters['app/getUploadImages']);
 
 const uploadedImages = ref([]);
 const confirmedImages = ref([]);
+
+if (remainingImages.value.length > 0) {
+    uploadedImages.value = remainingImages.value;
+}
 
 const deleteImage = (index) => {
     uploadedImages.value.splice(index, 1);
@@ -37,11 +42,15 @@ const uploadImage = (index) => {
     // Push the new image to confirmedImages
     confirmedImages.value.push(uploadedImages.value[index]);
 
-    // Update the Vuex store
+    // send images
     store.commit('app/setImages', confirmedImages.value);
 
     // Delete the image from uploadedImages
     deleteImage(index);
+
+    // Remaining images
+    store.commit('app/setUploadImages', uploadedImages.value);
+
 };
 
 const maxImages = 5;
@@ -65,8 +74,10 @@ const handleFileChange = (event) => {
                     type: file.type,
                     url: URL.createObjectURL(file),
                 });
+                // Update the Vuex store
+                store.commit('app/setUploadImages', uploadedImages.value);
             }
-            alert(` ${uploadedImages.value.length} 画像は。アップロードされます。`);
+            // alert(` ${uploadedImages.value.length} 画像は。アップロードされます。`);
         }
     }
 };
@@ -127,7 +138,7 @@ const redirectTo = (routePath) => {
                                     style="display: none"
                                     accept="image/*"
                                 />
-                                <button type="button" class="btn btn-outline-dark shadow-sm" v-if="uploadedImages.length" @click="clearImage()">クリア画像</button>
+                                <button type="button" class="btn btn-outline-dark shadow-sm" v-if="uploadedImages.length" @click="clearImage()">クリア画像</button><br>
                             <label class="text-success mb-4 mt-4" v-if="uploadedImages.length">アップロードされた画像の詳細</label>
                             <div v-for="(image, index) in uploadedImages" :key="index" class="col-sm-6 mb-4">
                                 <img :src="image.url" alt="Uploaded" class="uploaded-image w-100" /><br>
