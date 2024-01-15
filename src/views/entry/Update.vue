@@ -28,6 +28,9 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 const userData = ref([]);
+import DataTable from "datatables.net-vue3";
+
+const table  = ref();
 
 onMounted(async () => {
   try {
@@ -37,4 +40,15 @@ onMounted(async () => {
     console.error('Error fetching user data:', error);
   }
 });
+const dataGet = async() => {
+  //dotbm002c 取得
+  await axios
+    .get("https://bumpy-houses-greet.loca.lt/user_info")
+    .then((response) => {
+      userData.value = response.data;
+    })
+    .catch((error) => {
+      console.error('Error fetching user data:', error);
+    });
+}
 </script>
