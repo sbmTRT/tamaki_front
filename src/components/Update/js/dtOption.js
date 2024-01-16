@@ -25,11 +25,11 @@ const dtOption = {
         previous: "前へ",
     },
     },
-    paging: true,
-    lengthChange: true,
+    paging: false,
+    lengthChange: false,
     lengthMenu: [10, 25, 50, 100],
     displayLength: 50,
-    searching: true,
+    searching: false,
     ordering: true,
     info: true,
     autoWidth: true,
@@ -44,13 +44,24 @@ const dtOption = {
     fixedColumns: {
     leftColumns: 1,
     },
-    // columnDefs: [
-    // { targets: 1, visible: false, searchable: false }
-    // ]
+    columnDefs: [
+    { targets: 4, visible: false, searchable: false }
+    ]
 };
 
 //Datatables Column Setting
 const dtColumn = [
+    {
+        data: "USERID",
+        orderable: false,
+        render: function (data, type, row, meta) {
+            return `<div class="btn-toolbar">
+                <div class="btn-group btn-group-sm" role="group">
+                <button class="btn btn-warning" value="${data}" data-jnum="${meta.row}" data-bs-toggle="modal" data-bs-target="#editModal">編集</button>
+                </div>
+                </div>`;
+        },
+    },
     { data: 'USERID', title: 'ユーザーID' },
     { data: 'ROLE', title: '役割' },
     { data: 'USER_NAME', title: 'ユーザー名' },
