@@ -54,7 +54,7 @@
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deleteData" :disabled="!checkboxChecked">削除</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="dataDelete" :disabled="!checkboxChecked">削除</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -142,7 +142,7 @@
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-            <button type="button" class="btn btn-warning" >編集</button>
+            <button type="button" class="btn btn-warning" @click="dataEdit">編集</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -166,12 +166,25 @@ const userData        = ref([]);
 const sessionData     = ref([]);
 const selectedData    = ref('');
 const selectedDataRow = ref('');
-const msg             = ref('');
 const checkboxChecked = ref(false);
-const sid             = ref('');
+const authority       = ref(false);
+const sid       = '123';
 
 // Datatables Package Activation
 DataTable.use(DataTablesLib);
+
+//Sessioon Start
+const sessionStart = async () =>{
+  await axios
+    .post('http://localhost:8082/start', {}, { withCredentials: true })
+    .then((response) => {
+      authority.value = true;
+    })
+    .catch((error) => {
+      toastr.error('セクション設定エラー');
+      authority.value = false;
+    });
+}
 
 //Get API Response Data
 const dataGet = async () => {
@@ -179,25 +192,48 @@ const dataGet = async () => {
     .get('http://localhost:8082/getAll', { withCredentials: true })
     .then((response) => {
       userData.value = [response.data];
-      console.log(userData.value);
     })
     .catch((error) => {
       toastr.error('セクションデータ取得エラー');
     });
 };
-
-const sessionStart = async () =>{
+//Sessioon Start
+const dataEdit = async () =>{
+  console.log(sid)
   await axios
-    .post('http://localhost:8082/start', {}, { withCredentials: true })
+    .post('http://localhost:8082/takeVar?sid='+sid)
     .then((response) => {
-      console.log(response.data.sid);
+      console.log(response.data);
     })
     .catch((error) => {
       toastr.error('セクション設定エラー');
+      authority.value = false;
     });
 }
+
+// //Edit row from datatable
+// const dataEdit = async () => {
+//   await axios
+//     .get('http://localhost:8082/getVar',  { key: 'USERID' }, { withCredentials: true })
+//     .then((response) => {
+//       console.log(response.data);
+//       // Check the response and update the UI or show a notification accordingly
+//       if (response.data.msg === 'True') {
+//         toastr.success('セクションデータ編集しました');
+//         // Close the modal after editing
+//         $("#editModal").modal("hide");
+//       } else {
+//         toastr.error('セクションデータ編集エラー');
+//       }
+//     })
+//     .catch((error) => {
+//       toastr.error('セクション設定エラー(編集)');
+//       authority.value = false;
+//     });
+// };
+
 //Delete row from datatable
-const deleteData = async () => {
+const dataDelete = async () => {
   // Check if the checkbox is checked
   if (checkboxChecked.value) {
     // Get the index of the selected row
@@ -209,25 +245,24 @@ const deleteData = async () => {
       await axios
         .post('http://localhost:8082/delete', {}, { withCredentials: true })
         .then((response) => {
-          console.log(response.data.msg);
           if(response.data.msg == 'True') {
             $("#deleteModal").modal("hide");
             userData.value.splice(selectedRowIndex, 1);
             checkboxChecked.value = false;
-            toastr.success('セクションデータ取得削除');
+            toastr.success('セクションデータ削除しました');
           }else{
-            toastr.error('セクションデータ削除エラー1');
+            toastr.error('セクションデータ削除エラー');
           }
         })
         .catch((error) => {
-          toastr.error('セクションデータ削除エラー2');
+          toastr.error('セクションデータ削除エラー');
         });
     } else {
-      toastr.warning('Selected row not found in userData array.');
+      toastr.warning('選択した行が見つかりません');
     }
   } else {
     // Notify the user that the checkbox must be checked
-    toastr.warning('Please confirm deletion by checking the checkbox.');
+    toastr.warning('選択した行が見つかりません');
   }
 };
 
@@ -255,6 +290,10 @@ onMounted(async () => {
   try {
     // Session Start
     await sessionStart();
+
+    if (authority.value == false){
+      throw new Error('データにアクセスする権限がありません');
+    }
 
     // Get Session Data
     await dataGet();
