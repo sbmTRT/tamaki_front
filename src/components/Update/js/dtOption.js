@@ -57,7 +57,8 @@ const dtColumn = [
         render: function (data, type, row, meta) {
             return `<div class="btn-toolbar">
                 <div class="btn-group btn-group-sm" role="group">
-                <button class="btn btn-warning" value="${data}" data-jnum="${meta.row}" data-bs-toggle="modal" data-bs-target="#editModal">編集</button>
+                <button type="button" class="btn btn-danger" id="delete_btn" name="delete_btn" value="${data}" data-jnum="${meta.row}">削除</button>
+                <button type="button" class="btn btn-warning mx-2" id="edit_btn" name="edit_btn" value="${data}" data-jnum="${meta.row}">編集</button>
                 </div>
                 </div>`;
         },
