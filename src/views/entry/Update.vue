@@ -165,18 +165,37 @@ import { dtOption, dtColumn } from '../../components/Update/js/dtOption.js';
 const userData        = ref([]);
 const sessionData     = ref([]);
 const selectedData    = ref('');
-const selectedDataRow = ref('');
 const checkboxChecked = ref(false);
 const authority       = ref(false);
-const sid       = '123';
+const data = {};
+const config = {
+  withCredentials: true,
+};
+
+const selectedDataRow = ref({
+  USERID     : '',
+  USER_NAME  : '',
+  USER_EMAIL : '',
+  ROLE       : '',
+  AUTH_FLAG  : '',
+});
+
+const keyValuesList = [
+  { key: 'USERID',      value: selectedDataRow.value.USERID },
+  { key: 'USER_NAME',   value: selectedDataRow.value.USER_NAME },
+  { key: 'USER_EMAIL',  value: selectedDataRow.value.USER_EMAIL },
+  { key: 'ROLE',        value: selectedDataRow.value.ROLE },
+  { key: 'AUTH_FLAG',   value: selectedDataRow.value.AUTH_FLAG }
+];
 
 // Datatables Package Activation
 DataTable.use(DataTablesLib);
 
 //Sessioon Start
 const sessionStart = async () =>{
+  const url = 'http://localhost:8082/start';
   await axios
-    .post('http://localhost:8082/start', {}, { withCredentials: true })
+    .post(url, data, config)
     .then((response) => {
       authority.value = true;
     })
@@ -188,8 +207,9 @@ const sessionStart = async () =>{
 
 //Get API Response Data
 const dataGet = async () => {
+  const url = 'http://localhost:8082/getAll';
   await axios
-    .get('http://localhost:8082/getAll', { withCredentials: true })
+    .get(url, config)
     .then((response) => {
       userData.value = [response.data];
     })
@@ -199,11 +219,17 @@ const dataGet = async () => {
 };
 //Sessioon Start
 const dataEdit = async () =>{
-  console.log(sid)
+  const url = 'http://localhost:8082/setVar';
   await axios
-    .post('http://localhost:8082/takeVar?sid='+sid)
+    .post(url, keyValuesList, config)
     .then((response) => {
-      console.log(response.data);
+        toastr.success('セクションデータ編集しました');
+        if (response.data.msg === 'True') {
+          // Close the modal after editing
+          $("#editModal").modal("hide");
+        } else {
+          toastr.error('セクションデータ編集エラー');
+        }
     })
     .catch((error) => {
       toastr.error('セクション設定エラー');
