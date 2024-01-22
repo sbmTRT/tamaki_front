@@ -223,17 +223,16 @@ const dataEdit = async () =>{
   await axios
     .post(url, keyValuesList, config)
     .then((response) => {
-        toastr.success('セクションデータ編集しました');
         if (response.data.msg === 'True') {
           // Close the modal after editing
           $("#editModal").modal("hide");
+          toastr.success('セクションデータ編集しました');
         } else {
           toastr.error('セクションデータ編集エラー');
         }
     })
     .catch((error) => {
       toastr.error('セクション設定エラー');
-      authority.value = false;
     });
 }
 
