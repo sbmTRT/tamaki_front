@@ -17,6 +17,5 @@ const inputData = ref('');
 const submitForm = () => {
   // Do something with the entered data
   console.log('Submitted:', inputData.value);
-  // You can add additional logic here, such as making an API request.
 };
 </script>
