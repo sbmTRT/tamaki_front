@@ -180,13 +180,17 @@ const selectedDataRow = ref({
   AUTH_FLAG  : '',
 });
 
-const keyValuesList = [
-  { key: 'USERID',      value: selectedDataRow.value.USERID },
-  { key: 'USER_NAME',   value: selectedDataRow.value.USER_NAME },
-  { key: 'USER_EMAIL',  value: selectedDataRow.value.USER_EMAIL },
-  { key: 'ROLE',        value: selectedDataRow.value.ROLE },
-  { key: 'AUTH_FLAG',   value: selectedDataRow.value.AUTH_FLAG }
-];
+// const keyValue = 
+// [
+//   {
+//     "key": "USERID",
+//     "value": String(1111)
+//   },
+//   {
+//     "key": "USER_NAME",
+//     "value": String(1111)
+//   }
+// ];
 
 // Datatables Package Activation
 DataTable.use(DataTablesLib);
@@ -217,17 +221,30 @@ const dataGet = async () => {
       toastr.error('セクションデータ取得エラー');
     });
 };
+
 //Sessioon Start
 const dataEdit = async () =>{
+
+  const keyValuesList = [
+    { "key": "USERID",      "value": String(selectedDataRow.value.USERID) },
+    { "key": "USER_NAME",   "value": String(selectedDataRow.value.USER_NAME) },
+    { "key": "USER_EMAIL",  "value": String(selectedDataRow.value.USER_EMAIL) },
+    { "key": "ROLE",        "value": String(selectedDataRow.value.ROLE) },
+    { "key": "AUTH_FLAG",   "value": String(selectedDataRow.value.AUTH_FLAG) }
+  ];
+
   const url = 'http://localhost:8082/setVar';
   await axios
     .post(url, keyValuesList, config)
     .then((response) => {
+
         if (response.data.msg === 'True') {
           // Close the modal after editing
+          console.log(response.data);
           $("#editModal").modal("hide");
           toastr.success('セクションデータ編集しました');
         } else {
+          console.log(response.data);
           toastr.error('セクションデータ編集エラー');
         }
     })
@@ -235,27 +252,6 @@ const dataEdit = async () =>{
       toastr.error('セクション設定エラー');
     });
 }
-
-// //Edit row from datatable
-// const dataEdit = async () => {
-//   await axios
-//     .get('http://localhost:8082/getVar',  { key: 'USERID' }, { withCredentials: true })
-//     .then((response) => {
-//       console.log(response.data);
-//       // Check the response and update the UI or show a notification accordingly
-//       if (response.data.msg === 'True') {
-//         toastr.success('セクションデータ編集しました');
-//         // Close the modal after editing
-//         $("#editModal").modal("hide");
-//       } else {
-//         toastr.error('セクションデータ編集エラー');
-//       }
-//     })
-//     .catch((error) => {
-//       toastr.error('セクション設定エラー(編集)');
-//       authority.value = false;
-//     });
-// };
 
 //Delete row from datatable
 const dataDelete = async () => {
